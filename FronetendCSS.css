@@ -82,3 +82,16 @@ nav a:hover::before{
     width: 100%;
 }
 
+.cautare{
+    height: 40px;
+    padding:10px 0;
+    margin-left: 30px;
+    width: auto;
+    color: white;
+
+}
+
+.searchbar{
+    display: block;
+    margin-left: 20px;
+}
