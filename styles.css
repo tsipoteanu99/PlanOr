@@ -2,8 +2,10 @@ body{
     background:url('login.jpg') no-repeat;
     background-size: auto;
     height: 100vh;
-    margin: 0;
+    width: 100vw;
 }
+
+
 
 .login {
     width: 25vw;
@@ -15,9 +17,10 @@ body{
     position: absolute;
     transform: translate(-50%,-50%);
     box-sizing: border-box;
-    border-radius: 5%;
-    padding: 60px
+    border-radius: 3%;
+    padding: 25px;
 }
+
 
 .avatar{
     width: 100px;
@@ -30,14 +33,13 @@ body{
 
 h1{
     margin: 0;
-    padding: 0 0 20px;
+    
     text-align: center;
     font-size: 22px;
     color: black;
 }
 
 .login a {
-    position: absolute;
     text-align: center;
 }
 
