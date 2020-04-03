@@ -1,38 +1,54 @@
-<!DOCTYPE html>
+<!DOCTYPE <!DOCTYPE html>
 <html lang="en">
-<head>
-   <link rel="stylesheet" type="text/css" href="FronetendCSS.css">
-   <link rel="icon" href="logo.jpg">
-  <title>PlanOr</title>
-</head>
-<body>
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="index.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    />
+    <header>
+        <div class ="container">
+            <a href="./index.html"> <img class="logoimage" src="./logo.png" alt="logo"></a>
+             
+    </header>
+  </head>
 
- <header>
-    <div class ="container">
-      <a href="./index.html"> <img class="logoimage" src="./logo.png" alt="logo"></a>
-       
-     <nav>
+  <body>
+    <div class="middle">
+      <div class="menu">
+        <li class="item" id="Profil">
+          <a href="#Profil" class="btn"><i class="fa fa-user"></i>Profil</a>
+          <div class="smenu">
+            <a href="#">Profilul meu</a>
+            <a href="#">Albume</a>
+          </div>
+        </li>
 
-         <ul>
-            <li><a href="./Sipoteanu/profilulMeu.html"><h2>Profilul meu</h2></a> </li>
-            <li><a href="#"><h2>Albume</h2></a> </li>
-            <li><a href="#"><h2>Topuri</h2></a> </li>
-            <li><a href="#"><h2>Statistici</h2></a></li>
-            <li><a href="#"><h2>Credits</h2></a></li>
-            <form>
-               <input class="searchbar" type="search" placeholder="Search...">
-               <input class="searchbar" type="submit" value="Search">
-            </form>
-    
-         </ul>
-         
-     </nav> 
+        <li class="item" id="Mesaje">
+          <a href="#Mesaje" class="btn"><i class="fa fa-envelope"></i>Mesaje</a>
+          <div class="smenu">
+            <a href="#">Mesaj nou</a>
+            <a href="#">Trimise</a>
+          </div>
+        </li>
+
+        <li class="item" id="Setari">
+          <a href="#Setari" class="btn"><i class="fas fa-cog"></i>Setari</a>
+          <div class="smenu">
+            <a href="#">Schimbare parola</a>
+            <a href="#">Editare profil</a>
+
+            
+          </div>
+        </li>
+
+        <li class="item">
+          <a class="btn" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </li>
+      </div>
     </div>
-
-   </header>
-     
-      
-
-
-</body>
+  </body>
 </html>
