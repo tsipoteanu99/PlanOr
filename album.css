@@ -1,0 +1,73 @@
+body {
+  background: url("plante.jpg") no-repeat;
+  background-size: auto;
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  width: fit-content;
+  min-height: fit-content;
+
+  margin-left: 150px;
+  margin-right: 10px;
+  flex-direction: row;
+}
+
+.container .box {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: white;
+  margin: 10px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.container .box .imgBox {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  overflow: hidden;
+}
+.container .box .imgBox img {
+  object-fit: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.container .box:hover .imgBox img {
+  transform: scale(1.2);
+}
+
+.container .box .details {
+  position: absolute;
+  top: 150px;
+  left: 130px;
+  right: 130px;
+  bottom: 150px;
+}
+
+.like-button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.like-button i {
+  font-size: 5rem;
+  transform: 0.4s;
+  color: red;
+}
+
+.like-button:hover i {
+  color: red;
+}
+.fas {
+  color: red;
+  transition: 0.4s;
+}
