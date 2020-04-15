@@ -81,6 +81,7 @@
   max-height: 10em;
 }
 body {
+  background: url("../../Images/plante.jpg") no-repeat;
   background-size: auto;
   height: 100vh;
   width: 100vw;
