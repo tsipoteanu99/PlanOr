@@ -1,63 +1,48 @@
-body {
-  background-size: 100% 100%;
-  margin: 0;
-  padding: 0;
-  background-color: rgba(245, 224, 35, 0.5);
-  background-position: center;
-}
-
-.navigation {
-  width: 100%;
-  margin: auto;
-}
-
-div.content {
-  padding-bottom: 3000px;
-}
-
 .user-bio {
   margin: 2.5%;
-  position: relative;
+  top: 0;
+  position: sticky;
   display: inline-block;
   padding: 1%;
-  border-radius: 16px;
-  max-width: 25%;
+  border-radius: 7px;
+  width: 25%;
   height: auto;
-  background-color: rgb(67, 119, 24, 0.7);
-  box-shadow: 0px 5px 15px rgb(3, 82, 33);
+  background-color: #304b42;
+  box-shadow: 0px 5px 15px #494747;
+}
+
+.user-bio p {
+  padding: 5px;
+  margin: 5px;
+}
+
+.content {
+  height: auto;
 }
 
 .username {
   display: flex;
   justify-content: center;
-  color: rgb(221, 215, 215);
-  font-size: 115%;
-  color: #ffffff;
-  text-shadow: 1px 3px 0 #585757, 1px 4px 2px #494747;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: white;
+  font-size: 120%;
+  padding: 20px 0;
+  text-align: center;
   width: auto;
 }
 
 .user-bio h2 {
   display: flex;
   justify-content: center;
-  font-family: Impact, Charcoal, sans-serif;
-  font-size: 200%;
-  letter-spacing: 5px;
-  word-spacing: 20px;
-  color: #0a490f;
-  font-weight: normal;
-  text-shadow: 1px 3px 0 #108b2f, 1px 3px 5px #000802;
-  text-decoration: none;
-  font-style: normal;
-  font-variant: normal;
-  text-transform: none;
+  font-size: 100%;
+  color: #f1f7ee;
+  padding: 10px 0px;
 }
 
 .profile-picture {
   display: flex;
   justify-content: center;
 }
+
 .user-bio img {
   display: flex;
   justify-content: center;
@@ -79,66 +64,20 @@ hr {
   border: 1px solid rgb(31, 107, 24);
 }
 
-.logoimage {
-  display: inline-block;
-  height: 80px;
-  width: auto;
-}
-
-.logout {
-  display: flex;
-  height: 80px;
-  width: 80px;
-  align-content: center;
-}
-
-.logout p {
-  display: inline;
-}
-
-header {
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  background-color: rgba(2, 83, 2, 0.9);
-  margin: auto;
-  box-shadow: 0px 0px 15px 1px black;
-  text-decoration: none;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-.title_container {
-  display: flex;
-  padding: 0;
-  width: 100%;
-  justify-content: center;
-}
-
-.title_container h1 {
-  font-family: cursive;
-  color: black;
-  letter-spacing: 6px;
-  text-shadow: 1px 1px 0 #969696, 1px 5px 5px #084b2f;
-}
-
 .album-frame {
   margin-bottom: 10px;
   border-radius: 5px;
-  background-color: rgb(67, 119, 24, 0.7);
+  background-color: #99b4ab;
   display: flex;
   justify-content: center;
 }
 
 .album-frame p {
-  color: rgb(155, 30, 13);
+  color: black;
   margin: 10px 10px;
-  letter-spacing: 10px;
   display: inline-block;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-shadow: 1px 3px 0 #c4b20f, 1px 3px 5px #2f3806;
-  font-size: 50px;
-  border-radius: 30px;
+  font-size: 40px;
+  border-radius: 7px;
 }
 
 .icons {
@@ -153,8 +92,8 @@ header {
   margin: 2.5%;
   margin-left: 5%;
   padding: 1%;
-  background-color: rgb(67, 119, 24, 0.7);
-  border-radius: 16px;
+  background-color: #bbcac4;
+  border-radius: 7px;
   max-width: 55%;
   height: auto;
 }

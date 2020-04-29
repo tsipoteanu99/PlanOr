@@ -1,0 +1,50 @@
+.searchTitle {
+  margin: 0 0 10px;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  font-size: 42px;
+  border-radius: 10px;
+  text-shadow: black 0px 0px 6px;
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  transform: translate(-50%, -50%);
+}
+
+input {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+input[type="text"] {
+  background: #fff;
+  width: 340px;
+  height: 50px;
+  border: none;
+  outline: none;
+  padding: 0 25px;
+  border-radius: 25px 0 0 25px;
+}
+
+input[type="submit"] {
+  border-radius: 0px 25px 25px 0px;
+  position: relative;
+  height: 50px;
+  width: 150px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: #1d2926;
+  color: #fff;
+}
+
+input[type="submit"]:hover {
+  background: rgb(11, 68, 28);
+}

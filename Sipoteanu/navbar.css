@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-size: 100% 100%;
+  margin: 0;
+  padding: 0;
+  background-position: center;
+  font-family: "Verdana", cursive, sans-serif;
+  background-color: #f1f7ee;
+}
+
+.title_container {
+  text-align: center;
+  padding: 0 20px;
+  width: 100%;
+  font-size: 26px;
+  color: #ffffff;
+  text-shadow: black -5px -2px 3px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #1d2926;
+  margin: auto;
+  box-shadow: 0px 0px 15px 1px black;
+  text-decoration: none;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.logoimage {
+  display: inline-block;
+  height: 80px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul {
+  float: left;
+}
+
+nav ul li {
+  float: left;
+  list-style: none;
+  position: relative;
+}
+
+nav ul li a {
+  display: block;
+  font-family: arial;
+  color: #fff;
+  font-size: 24px;
+  padding: 30px 14px;
+  text-decoration: none;
+}
+
+nav ul li ul {
+  display: none;
+  position: absolute;
+  background-color: #1d2926;
+  width: 20vw;
+  border-radius: 0px 0px 5px 5px;
+}
+
+nav ul li:hover ul {
+  display: block;
+}
+
+nav ul li ul li a {
+  padding: 14px 14px;
+  margin: 0;
+}
+nav ul li ul li {
+  width: 100%;
+}
+
+nav ul li ul li a:hover {
+  background-color: #6aa58d;
+}
+
+nav ul li ul li:last-child a:hover {
+  border-radius: 0 0 5px 5px;
+}
