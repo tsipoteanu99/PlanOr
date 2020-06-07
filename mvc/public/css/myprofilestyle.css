@@ -1,0 +1,120 @@
+.user-bio {
+  margin: 2.5%;
+  top: 0;
+  position: sticky;
+  display: inline-block;
+  padding: 1%;
+  border-radius: 7px;
+  width: 25%;
+  height: auto;
+  background-color: #304b42;
+  box-shadow: 0px 5px 15px #494747;
+}
+
+.user-bio p {
+  padding: 5px;
+  margin: 5px;
+}
+
+.content {
+  height: auto;
+}
+
+.username {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 120%;
+  padding: 20px 0;
+  text-align: center;
+  width: auto;
+}
+
+.user-bio h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 100%;
+  color: #f1f7ee;
+  padding: 10px 0px;
+}
+
+.profile-picture {
+  display: flex;
+  justify-content: center;
+}
+
+.user-bio img {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  border: 3px;
+  border-style: solid;
+  box-shadow: 0px 7px 12px rgb(8, 56, 4);
+  border-color: white;
+}
+
+.user-bio img:hover {
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+hr {
+  border: 1px solid rgb(2, 15, 1);
+}
+
+.album-frame {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #99b4ab;
+  display: flex;
+  justify-content: center;
+}
+
+.album-frame p {
+  color: black;
+  margin: 10px 10px;
+  display: inline-block;
+  font-size: 40px;
+  border-radius: 7px;
+}
+
+.icons {
+  padding-right: 5px;
+  color: rgb(167, 144, 18);
+  font-size: 1em;
+}
+
+.user-content {
+  display: inline-block;
+  position: absolute;
+  margin: 2.5%;
+  margin-left: 5%;
+  padding: 1%;
+  background-color: #bbcac4;
+  border-radius: 7px;
+  max-width: 55%;
+  height: auto;
+}
+
+.albums-box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+}
+
+.content-pictures {
+  padding: 0 20px 20px;
+}
+
+.content-pictures img {
+  width: 250px;
+  height: auto;
+}
+.content-pictures img:hover {
+  opacity: 0.4;
+  transition: 0.6s;
+}
