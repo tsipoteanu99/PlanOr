@@ -30,32 +30,34 @@
       <h1>Plant Organiser SSM</h1>
     </div>
   </nav>
-  <div class="left">
-    <div class="menu">
-      <li class="item" id="Username">
-        <a href="<?php echo URL ?>/public/?url=settings/username" class="btn"><i class="fa fa-user"></i>Change Username</a>
-      </li>
+  <div class="wrapper">
+    <div class="left">
+      <div class="menu">
+        <li class="item" id="Username">
+          <a href="<?php echo URL ?>/public/?url=settings/username" class="btn"><i class="fa fa-user"></i> Change Username</a>
+        </li>
 
-      <li class="item" id="Parola">
-        <a href="#" class="btn"><i class="fa fa-envelope"></i>Change Password</a>
-      </li>
+        <li class="item" id="Parola">
+          <a href="<?php echo URL ?>/public/?url=settings/password" class="btn" style="background-color: green !important; transform: translate(5%, 0%);"><i class="fa fa-envelope"></i> Change Password</a>
+        </li>
 
-      <li class="item" id="E-mail">
-        <a href="<?php echo URL ?>/public/?url=settings/mail" class="btn"><i class="fas fa-cog"></i>Change E-mail</a>
-      </li>
+        <li class="item" id="E-mail">
+          <a href="<?php echo URL ?>/public/?url=settings/mail" class="btn"><i class="fas fa-cog"></i> Change E-mail</a>
+        </li>
+      </div>
     </div>
-  </div>
 
-  <div class="schimbare">
-    <form>
-      <p>Current password</p>
-      <input type="password" placeholder="Enter your current password" />
-      <p>New Password</p>
-      <input type="password" placeholder="Enter your new password" />
-      <p>Confirm Password</p>
-      <input type="password" placeholder="Confirm your new password" />
-      <input type="submit" value="Change password" href="<?php echo URL ?>/public/?url=settings/confirmation" />
-    </form>
+    <div class="schimbare">
+      <form>
+        <p>Current password</p>
+        <input type="password" placeholder="Enter your current password" />
+        <p>New Password</p>
+        <input type="password" placeholder="Enter your new password" />
+        <p>Confirm Password</p>
+        <input type="password" placeholder="Confirm your new password" />
+        <input type="submit" value="Change password" href="<?php echo URL ?>/public/?url=settings/confirmation" />
+      </form>
+    </div>
   </div>
 </body>
 

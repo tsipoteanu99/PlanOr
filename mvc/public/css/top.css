@@ -1,0 +1,129 @@
+* {
+    list-style: none;
+    text-decoration: none;
+  }
+  
+  .wrapper{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    height: auto;
+    margin-top: 5%;
+  }
+  
+
+  .table{
+      display: table;
+      margin-top: 2%;
+      margin-left: 5%;
+  }
+
+  .row{
+      display: table-row;
+      width: 100%;
+  }
+
+  .cell{
+      display: table-cell;
+      padding: 5px;
+
+  }
+
+  .image{
+      width: 20%;
+      border-left: 0.5px solid green;
+      text-align: center;
+  }
+
+  .name{
+      width: 45%;
+      border-left: 0.5px solid green;
+      text-align: center;
+  }
+  
+  .user{
+      width: 25%;
+      border-left: 0.5px solid green;
+      text-align: center;
+  }
+
+  .likes{
+      width: 10%;
+      border-left: 0.5px solid green;
+      text-align: center;
+  }
+
+  .desc{
+      color: white;
+      font-size: 20px;
+      background-color: #333;
+      border-bottom: 2.5px solid green;
+      margin-bottom: 15px;
+  }
+
+  .number{
+    text-align: center;
+  }
+
+  .row-item{
+      background-color: wheat;
+  }
+
+  .item{
+      vertical-align: middle;
+      border-bottom: 2px solid gray;
+    }
+
+  .itemlikes{
+      text-align: center;
+  }
+
+  .itemimgdiv{
+    text-align: center;
+  }
+
+  .itemimage{
+    width: 150px;
+    height: 80px;
+  }
+
+  .itemimage:hover{
+    width: 150px;
+    height: 80px;
+    opacity: 0.8;
+    transition: 0.2s;
+  }
+
+  .itemins{
+      display: block;
+      color: blueviolet;
+      font-size: 20px;
+  }
+
+@media screen and (max-width: 500px){
+    .wrapper{
+        margin-left: 0;
+        width: 100%;
+    }
+    .cell{
+        padding: 2px;
+    }
+
+    .table{
+        margin-left: 0;
+    }
+
+    .row{
+        width: 350px;
+    }
+
+    .row-item{
+        width: 350px;
+    }
+
+    .itemimage{
+        width: 100px;
+        height: 60px;
+    }
+}

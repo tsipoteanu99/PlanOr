@@ -30,33 +30,35 @@
       <h1>Plant Organiser SSM</h1>
     </div>
   </nav>
-  <div class="left">
-    <div class="menu">
-      <li class="item" id="Username">
-        <a href="<?php echo URL ?>/public/?url=settings/username" class="btn"><i class="fa fa-user"></i>Change Username</a>
-      </li>
+  <div class="wrapper">
+    <div class="left">
+      <div class="menu">
+        <li class="item" id="Username">
+          <a href="<?php echo URL ?>/public/?url=settings/username" class="btn"><i class="fa fa-user"></i> Change Username</a>
+        </li>
 
-      <li class="item" id="Parola">
-        <a href="<?php echo URL ?>/public/?url=settings/password" class="btn"><i class="fa fa-envelope"></i>Change Password</a>
-      </li>
+        <li class="item" id="Parola">
+          <a href="<?php echo URL ?>/public/?url=settings/password" class="btn"><i class="fa fa-envelope"></i> Change Password</a>
+        </li>
 
-      <li class="item" id="E-mail">
-        <a href="#" class="btn"><i class="fas fa-cog"></i>Change E-mail</a>
-      </li>
+        <li class="item" id="E-mail">
+          <a href="<?php echo URL ?>/public/?url=settings/mail" class="btn" style="background-color: green !important; transform: translate(5%, 0%);"><i class="fas fa-cog"></i> Change E-mail</a>
+        </li>
+      </div>
     </div>
-  </div>
 
-  <div class="schimbare">
-    <form>
-      <p>New E-mail</p>
-      <input type="text" placeholder="Enter your new e-mail" />
-      <p>Confirm new E-mail</p>
-      <input type="text" placeholder="Confirm your new e-mail" />
-      <p>Password</p>
-      <input type="password" placeholder="Enter Password" />
-      <input type="submit" value="Change e-mail" onclick="location.href='<?php echo URL ?>/public/?url=settings/confimation'" />
-    </form>
-  </div>
+    <div class="schimbare">
+      <form>
+        <p>New E-mail</p>
+        <input type="text" placeholder="Enter your new e-mail" />
+        <p>Confirm new E-mail</p>
+        <input type="text" placeholder="Confirm your new e-mail" />
+        <p>Password</p>
+        <input type="password" placeholder="Enter Password" />
+        <input type="submit" value="Change e-mail" onclick="location.href='<?php echo URL ?>/public/?url=settings/confimation'" />
+      </form>
+    </div>
+</div>
 </body>
 
 </html>
