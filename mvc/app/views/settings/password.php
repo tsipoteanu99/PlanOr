@@ -22,7 +22,7 @@
           <li><a href="<?php echo URL ?>/public/?url=profile">My Profile</a></li>
           <li><a href="<?php echo URL ?>/public/?url=searchUser">Search User</a></li>
           <li><a href="<?php echo URL ?>/public/?url=searchUser">Search Albums</a></li>
-          <li><a href="<?php echo URL ?>/public/?url=searchUser">">Account Settings</a></li>
+          <li><a href="<?php echo URL ?>/public/?url=searchUser">Account Settings</a></li>
         </ul>
       </li>
     </ul>

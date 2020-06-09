@@ -65,7 +65,7 @@ nav ul li ul {
   display: none;
   position: absolute;
   background-color: #1d2926;
-  width: 20vw;
+  width: 25vw;
   border-radius: 0px 0px 5px 5px;
 }
 
@@ -87,4 +87,34 @@ nav ul li ul li a:hover {
 
 nav ul li ul li:last-child a:hover {
   border-radius: 0 0 5px 5px;
+}
+
+@media screen and (max-width: 800px) {
+  .title_container {
+    text-align: center;
+    padding: 0 20px;
+    width: 100vw;
+    font-size: 100%;
+    color: #ffffff;
+    text-shadow: black -5px -2px 3px;
+  }
+  nav ul li a {
+    display: block;
+    font-family: arial;
+    color: #fff;
+    font-size: 100%;
+    padding: 30px 14px;
+    text-decoration: none;
+  }
+  nav ul li ul {
+    width: 60vw;
+  }
+
+  nav ul li:hover ul {
+    display: block;
+  }
+
+  .logoimage {
+    height: 45px;
+  }
 }

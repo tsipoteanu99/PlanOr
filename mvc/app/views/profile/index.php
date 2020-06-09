@@ -29,129 +29,130 @@
       <h1>Plant Organiser SSM</h1>
     </div>
   </nav>
-
-  <div class="user-bio">
-    <div class="profile-picture">
-      <img src="<?php echo URL ?>/public/assets/profilepic.png" alt="profile-picture" />
-    </div>
-    <h1 class="username">Sipoteanu Tiberiu Constantin</h1>
-    <h2>User Info</h2>
-    <hr />
-    <div class="bio-info-box">
-      <p><i class="fa fa-camera icons"></i>Posts: 1283475123</p>
+  <div class="globalwrapper">
+    <div class="user-bio">
+      <div class="profile-picture">
+        <img src="<?php echo URL ?>/public/assets/profilepic.png" alt="profile-picture" />
+      </div>
+      <h1 class="username">Sipoteanu Tiberiu Constantin</h1>
+      <h2>User Info</h2>
       <hr />
-      <p><i class="fa fa-user icons"></i>Followers:</p>
-      <hr />
-      <p><i class="fab fa-canadian-maple-leaf icons"></i>Favorite plants:</p>
-      <hr />
-      <p><i class="fa fa-heart icons"></i>Likes:</p>
+      <div class="bio-info-box">
+        <p><i class="fa fa-camera icons"></i>Posts: 1283475123</p>
+        <hr />
+        <p><i class="fa fa-user icons"></i>Followers:</p>
+        <hr />
+        <p><i class="fab fa-canadian-maple-leaf icons"></i>Favorite plants:</p>
+        <hr />
+        <p><i class="fa fa-heart icons"></i>Likes:</p>
+      </div>
     </div>
-  </div>
 
-  <div class="user-content">
-    <div class="album-frame">
-      <p>Albums</p>
-    </div>
-    <div class="albums-box">
-      <!-- <?php
-            echo $data["test"];
-            for ($i = 0; $i <= 10; $i++)
-              echo '<h1>' . $i . '</h1>';
-            ?> -->
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+    <div class="user-content">
+      <div class="album-frame">
+        <p>Albums</p>
       </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
-      <div class="content-pictures">
-        <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-      </div>
+      <div class="albums-box">
+        <!-- <?php
+              echo $data["test"];
+              for ($i = 0; $i <= 10; $i++)
+                echo '<h1>' . $i . '</h1>';
+              ?> -->
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
+        <div class="content-pictures">
+          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
+        </div>
 
+      </div>
     </div>
   </div>
 </body>

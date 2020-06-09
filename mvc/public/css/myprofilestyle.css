@@ -1,12 +1,11 @@
 .user-bio {
   margin: 2.5%;
-  top: 0;
-  position: sticky;
+  position: fixed;
   display: inline-block;
   padding: 1%;
   border-radius: 7px;
   width: 25%;
-  height: auto;
+  height: max-content;
   background-color: #304b42;
   box-shadow: 0px 5px 15px #494747;
 }
@@ -18,6 +17,10 @@
 
 .content {
   height: auto;
+}
+
+.globalwrapper {
+  display: flex;
 }
 
 .username {
@@ -88,7 +91,6 @@ hr {
 
 .user-content {
   display: inline-block;
-  position: absolute;
   margin: 2.5%;
   margin-left: 5%;
   padding: 1%;
@@ -96,6 +98,8 @@ hr {
   border-radius: 7px;
   max-width: 55%;
   height: auto;
+  position: relative;
+  left: 32%;
 }
 
 .albums-box {
@@ -111,10 +115,20 @@ hr {
 }
 
 .content-pictures img {
-  width: 250px;
+  width: 11.5vw;
   height: auto;
 }
 .content-pictures img:hover {
   opacity: 0.4;
   transition: 0.6s;
+}
+
+@media screen and (max-width: 800px) {
+  .globalwrapper {
+    flex-direction: column;
+  }
+
+  .user-content {
+    position: absolute;
+  }
 }
