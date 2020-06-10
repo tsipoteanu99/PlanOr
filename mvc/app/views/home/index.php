@@ -34,6 +34,7 @@
                 <div class="smenu">
                     <a href="<?php echo URL ?>/public?url=searchUser">Cauta utilizatori</a>
                     <a href="<?php echo URL ?>/public?url=searchAlbums">Cauta albume</a>
+                    <a href="<?php echo URL ?>/public?url=top">Topuri</a>
                 </div>
             </li>
 

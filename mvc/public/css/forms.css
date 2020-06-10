@@ -39,12 +39,6 @@
   color: white;
 }
 
-.smenu {
-  background: grey;
-  overflow: hidden;
-  transition: max-height 0.4s;
-  max-height: 0;
-}
 
 .item:hover > a {
   background-color: #1d2926;
@@ -53,40 +47,8 @@
   transition: all 0.25s ease-out;
 }
 
-.smenu a {
-  display: block;
-  padding: 16px 20px;
-  color: white;
-  font-size: 14px;
-  margin: 4px 0;
-}
-
-.smenu a:before {
-  content: "";
-  width: 6px;
-  height: 100%;
-  background: rgb(44, 32, 58);
-  left: 0;
-  top: 0;
-  transition: 0.4s;
-  opacity: 0;
-}
-
-.smenu a:hover:before {
-  opacity: 1;
-}
-
 .item:target .smenu {
   max-height: 10em;
-}
-
-.container {
-  width: 100%;
-  background-color: rgb(67, 119, 24, 0.7);
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
 }
 
 .schimbare {

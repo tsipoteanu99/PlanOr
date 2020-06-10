@@ -36,15 +36,15 @@
     <div class="left">
       <div class="menu">
         <li class="item" id="Username">
-          <a href="<?php echo URL ?>/public/?url=settings/username" class="btn"><i class="fa fa-user"></i>Change Username</a>
+          <a href="<?php echo URL ?>/public/?url=settings/username" class="btn"><i class="fa fa-user"></i> Change Username</a>
         </li>
 
         <li class="item" id="Parola">
-          <a href="<?php echo URL ?>/public/?url=settings/password" class="btn"><i class="fa fa-envelope"></i>Change Password</a>
+          <a href="<?php echo URL ?>/public/?url=settings/password" class="btn"><i class="fa fa-envelope"></i> Change Password</a>
         </li>
 
         <li class="item" id="E-mail">
-          <a href="<?php echo URL ?>/public/?url=settings/mail" class="btn"><i class="fas fa-cog"></i>Change E-mail</a>
+          <a href="<?php echo URL ?>/public/?url=settings/mail" class="btn"><i class="fas fa-cog"></i> Change E-mail</a>
         </li>
       </div>
     </div>
