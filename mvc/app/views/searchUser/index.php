@@ -3,6 +3,7 @@
 
 <head>
   <title>Search Albums</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" type="text/css" href="<?php echo URL ?>/public/css/searchStyle.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo URL ?>/public/css/navbar.css" />
   <script src="https://kit.fontawesome.com/ce66004dc2.js" crossorigin="anonymous"></script>

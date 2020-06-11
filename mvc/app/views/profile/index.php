@@ -4,6 +4,7 @@
 
 <head>
   <title>My Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" type="text/css" href="<?php echo URL ?>/public/css/myprofilestyle.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo URL ?>/public/css/navbar.css" />
   <script src="https://kit.fontawesome.com/ce66004dc2.js" crossorigin="anonymous"></script>
@@ -33,9 +34,9 @@
   <div class="globalwrapper">
     <div class="user-bio">
       <div class="profile-picture">
-        <img src="<?php echo URL ?>/public/assets/profilepic.png" alt="profile-picture" />
+        <img src="<?php echo URL ?>/public/assets/profilepic.jpg" alt="profile-picture" />
+        <h1 class="username">Sipoteanu Tiberiu Constantin</h1>
       </div>
-      <h1 class="username">Sipoteanu Tiberiu Constantin</h1>
       <h2>User Info</h2>
       <hr />
       <div class="bio-info-box">

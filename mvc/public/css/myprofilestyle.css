@@ -1,12 +1,11 @@
 .user-bio {
   margin: 2.5%;
-  position: fixed;
   display: inline-block;
   padding: 1%;
   border-radius: 7px;
   width: 25%;
   height: max-content;
-  background-color: #304b42;
+  background-color: hsl(160, 22%, 24%);
   box-shadow: 0px 5px 15px #494747;
 }
 
@@ -44,6 +43,16 @@
 .profile-picture {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .user-bio img {
@@ -79,7 +88,7 @@ hr {
   color: black;
   margin: 10px 10px;
   display: inline-block;
-  font-size: 40px;
+  font-size: 150%;
   border-radius: 7px;
 }
 
@@ -92,14 +101,12 @@ hr {
 .user-content {
   display: inline-block;
   margin: 2.5%;
-  margin-left: 5%;
   padding: 1%;
   background-color: #bbcac4;
   border-radius: 7px;
   max-width: 55%;
   height: auto;
   position: relative;
-  left: 32%;
 }
 
 .albums-box {
@@ -123,12 +130,75 @@ hr {
   transition: 0.6s;
 }
 
-@media screen and (max-width: 800px) {
-  .globalwrapper {
-    flex-direction: column;
+@media screen and (min-width: 721px) {
+  .user-bio {
+    position: fixed;
   }
 
   .user-content {
-    position: absolute;
+    left: 32%;
+    margin-left: 5%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .globalwrapper {
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .user-bio {
+    width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .user-content {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .profile-picture {
+    justify-content: space-between;
+    flex-direction: row;
+    margin-left: 5%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    height: 100%;
+  }
+
+  .profile-picture img {
+    height: 40%;
+    width: 40%;
+  }
+
+  .content-pictures {
+    padding: 0 5px 5px;
+  }
+
+  .content-pictures img {
+    width: 25vw;
+    height: auto;
+  }
+
+  .username {
+    font-size: 100%;
+    padding: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .user-bio h2 {
+    font-size: 90%;
+
+    padding: 10px 0px;
+  }
+
+  .user-bio p {
+    font-size: 80%;
   }
 }
