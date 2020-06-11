@@ -48,3 +48,23 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background: rgb(11, 68, 28);
 }
+
+
+@media screen and (max-width: 750px){
+  .searchTitle{
+    font-size: 34px;
+  }
+
+  .box{
+    width: 85%;
+  }
+
+  input[type="text"] {
+    width: 65%;
+  }
+  
+  input[type="submit"] {
+   width:30%;
+  }
+  
+}

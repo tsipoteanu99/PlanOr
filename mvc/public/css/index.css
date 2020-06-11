@@ -84,3 +84,9 @@
   height: 80px;
   width: auto;
 }
+
+@media screen and (max-width: 750px){
+  .menu{
+    width: 300px;
+  }
+}
