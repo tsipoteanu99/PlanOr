@@ -11,6 +11,8 @@ class App
     public function __construct()
     {
         $url = $this->parseUrl();
+        if (!isset($url[0]))
+            $url[0] = 'index';
         if (file_exists('../app/controllers/' . $url[0] . '.php')) {
             $this->controller = $url[0];
             unset($url[0]);

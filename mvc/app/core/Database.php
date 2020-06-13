@@ -23,12 +23,9 @@ class Database
 
     private function __construct()
     {
-        $conn = mysqli_connect(self::$host, self::$user, self::$pass) or die("could not conenct");
-        mysqli_select_db($conn, "planor") or die("database not found");
+        $conn = mysqli_connect(self::$host, self::$user, self::$pass, self::$db);
         self::$connexion = $conn;
-        if ($conn) {
-            echo 'Connected successfully. <br>';
-        } else
+        if (!$conn)
             echo 'Couldn\'t connect to database' . self::$db;
     }
 

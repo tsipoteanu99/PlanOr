@@ -30,8 +30,9 @@
     <div class="title_container">
       <h1>Plant Organiser SSM</h1>
     </div>
+    <a class="logout" href="<?php echo URL ?>/public/?url=login"><img class="logoutimg" src="<?php echo URL ?>/public/assets/logout.png" /></a>
   </nav>
-  <div class="globalwrapper">
+  <div class=" globalwrapper">
     <div class="user-bio">
       <div class="profile-picture">
         <img src="<?php echo URL ?>/public/assets/profilepic.jpg" alt="profile-picture" />

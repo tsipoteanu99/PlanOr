@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2020 at 08:57 PM
+-- Generation Time: Jun 13, 2020 at 11:54 AM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -67,16 +68,18 @@ CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL,
   `username` varchar(25) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(25) NOT NULL
+  `password` varchar(25) NOT NULL,
+  `online` int(1) NOT NULL,
+  `picture` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
-(1, 'testuser', 'testmail@gmail.com', 'abc123'),
-(2, 'admin', 'admin@gmail.com', 'abc123');
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `online`, `picture`) VALUES
+(1, 'testuser', 'testmail@gmail.com', 'abc123', 0, ''),
+(2, 'admin', 'admin@gmail.com', 'abc123', 0, '');
 
 --
 -- Indexes for dumped tables

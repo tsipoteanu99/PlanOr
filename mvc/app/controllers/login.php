@@ -17,7 +17,6 @@ class Login extends Controller
             $isValid = $user->checkIfValid($username, $pass);
 
             if ($isValid) {
-                echo "it worked";
                 $this->view('profile/index');
             } else $this->view("login/login");
         }
