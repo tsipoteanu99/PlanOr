@@ -1,5 +1,6 @@
 <?php
 
+
 class Login extends Controller
 {
     public function index($name = '')
@@ -17,7 +18,17 @@ class Login extends Controller
             $isValid = $user->checkIfValid($username, $pass);
 
             if ($isValid) {
-                $this->view('profile/index');
+                $user->setData();
+                $this->view(
+                    'profile/index',
+                    [
+                        'username' => $user->getUsername(),
+                        'email' => $user->getEmail(),
+                        'lastName' => $user->getLastName(),
+                        'firstName' => $user->getFirstName(),
+                        'picture' => $user->getPicture(),
+                    ]
+                );
             } else $this->view("login/login");
         }
     }

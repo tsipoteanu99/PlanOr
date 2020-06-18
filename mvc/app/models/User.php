@@ -1,13 +1,14 @@
 <?php
 
-//require_once "../core/Database.php";
-
 class User
 {
-   public $name;
-   public $email;
-   public $picture;
-   public $online;
+   private $username;
+   private $id;
+   private $email;
+   private $picture;
+   private $admin;
+   private $firstName;
+   public $lastName;
 
    public function checkIfValid($username, $password)
    {
@@ -15,7 +16,59 @@ class User
       $querry = "SELECT * FROM USERS WHERE username = '$username' AND password = '$password'";
       $result = mysqli_query($connexion::$connexion, $querry) or die();
       $resultCheck = mysqli_num_rows($result);
-      if ($resultCheck > 0) return true;
-      else return false;
+      if ($resultCheck > 0) {
+         $this->username = $username;
+         session_start();
+         $_SESSION['user'] = $username;
+         return true;
+      } else return false;
+   }
+
+   public function getUsername()
+   {
+      return $this->username;
+   }
+   public function getId()
+   {
+      return $this->id;
+   }
+   public function getFirstName()
+   {
+      return $this->firstName;
+   }
+   public function getLastName()
+   {
+      return $this->lastName;
+   }
+   public function getPicture()
+   {
+      return $this->picture;
+   }
+   public function getEmail()
+   {
+      return $this->email;
+   }
+   public function getAdmin()
+   {
+      return $this->admin;
+   }
+
+   public function setData()
+   {
+      $connexion = Database::getInstance();
+      $querry = "SELECT * FROM USERS WHERE username ='$this->username'";
+      $result = mysqli_query($connexion::$connexion, $querry) or die();
+      $resultCheck = mysqli_num_rows($result);
+
+      if ($resultCheck > 0) {
+         while ($row = mysqli_fetch_assoc($result)) {
+            $this->id = $row['id'];
+            $this->picture = $row['picture'];
+            $this->email = $row['email'];
+            $this->admin = $row['admin'];
+            $this->firstName = $row['first_name'];
+            $this->lastName = $row['last_name'];
+         }
+      }
    }
 }

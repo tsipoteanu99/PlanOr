@@ -11,42 +11,19 @@
 </head>
 
 <body>
-  <nav>
-    <a href="<?php echo URL ?>/public/?url=home">
-      <img class="logoimage" src="<?php echo URL ?>/public/assets/logo.png" alt="logo" /></a>
-    <ul>
-      <li>
-        <a class="fas fa-bars dropdown" href="#"></a>
-        <ul>
-          <li><a href="<?php echo URL ?>/public/?url=home">Home</a></li>
-          <li><a href="#">My Profile</a></li>
-          <li><a href="<?php echo URL ?>/public/?url=searchUser">Search User</a></li>
-          <li><a href="<?php echo URL ?>/public/?url=searchAlbums">Search Albums</a></li>
-          <li><a href="<?php echo URL ?>/public/?url=top">Top Albums</a></li>
-          <li><a href="<?php echo URL ?>/public/?url=settings">Account Settings</a></li>
-        </ul>
-      </li>
-    </ul>
-    <div class="title_container">
-      <h1>Plant Organiser SSM</h1>
-    </div>
-    <a class="logout" href="<?php echo URL ?>/public/?url=login"><img class="logoutimg" src="<?php echo URL ?>/public/assets/logout.png" /></a>
-  </nav>
+  <?php $IPATH = $_SERVER["DOCUMENT_ROOT"] . "/mvc/app/views/";
+  include($IPATH . "navbar.php"); ?>
   <div class=" globalwrapper">
     <div class="user-bio">
       <div class="profile-picture">
         <img src="<?php echo URL ?>/public/assets/profilepic.jpg" alt="profile-picture" />
-        <h1 class="username">Sipoteanu Tiberiu Constantin</h1>
+        <h1 class="username"><?php echo $data['firstName'] . ' ' . $data['lastName'] ?></h1>
       </div>
       <h2>User Info</h2>
-      <hr />
       <div class="bio-info-box">
         <p><i class="fa fa-camera icons"></i>Posts: 1283475123</p>
-        <hr />
         <p><i class="fa fa-user icons"></i>Followers:</p>
-        <hr />
         <p><i class="fab fa-canadian-maple-leaf icons"></i>Favorite plants:</p>
-        <hr />
         <p><i class="fa fa-heart icons"></i>Likes:</p>
       </div>
     </div>

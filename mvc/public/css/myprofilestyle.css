@@ -72,8 +72,9 @@
   transition: 0.3s;
 }
 
-hr {
-  border: 1px solid rgb(2, 15, 1);
+.bio-info-box {
+  border: wheat;
+  border-width: 1px;
 }
 
 .album-frame {
