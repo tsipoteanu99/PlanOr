@@ -9,11 +9,6 @@
   box-shadow: 0px 5px 15px #494747;
 }
 
-.user-bio p {
-  padding: 5px;
-  margin: 5px;
-}
-
 .content {
   height: auto;
 }
@@ -36,6 +31,8 @@
   display: flex;
   justify-content: center;
   font-size: 100%;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 700;
   color: #f1f7ee;
   padding: 10px 0px;
 }
@@ -73,8 +70,30 @@
 }
 
 .bio-info-box {
-  border: wheat;
-  border-width: 1px;
+  border: #f1f7ee solid;
+  border-width: 1%;
+  border-radius: 50px 20px;
+  padding: 3.5%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bio-info-box div {
+  margin: 2.5%;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bio-info-box div span {
+  font-size: 100%;
+  margin: 2%;
+  font-family: Georgia, serif;
+  font-weight: 600;
+  color: white;
 }
 
 .album-frame {
@@ -94,8 +113,7 @@
 }
 
 .icons {
-  padding-right: 5px;
-  color: rgb(167, 144, 18);
+  color: #99b4ab;
   font-size: 1em;
 }
 

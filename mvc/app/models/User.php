@@ -68,6 +68,12 @@ class User
             $this->admin = $row['admin'];
             $this->firstName = $row['first_name'];
             $this->lastName = $row['last_name'];
+            $_SESSION['id'] = $this->id;
+            $_SESSION['picture'] = $this->picture;
+            $_SESSION['email'] = $this->email;
+            $_SESSION['admin'] = $this->admin;
+            $_SESSION['firstName'] = $this->firstName;
+            $_SESSION['lastName'] = $this->lastName;
          }
       }
    }

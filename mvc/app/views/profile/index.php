@@ -21,10 +21,10 @@
       </div>
       <h2>User Info</h2>
       <div class="bio-info-box">
-        <p><i class="fa fa-camera icons"></i>Posts: 1283475123</p>
-        <p><i class="fa fa-user icons"></i>Followers:</p>
-        <p><i class="fab fa-canadian-maple-leaf icons"></i>Favorite plants:</p>
-        <p><i class="fa fa-heart icons"></i>Likes:</p>
+        <div><i class="fa fa-camera icons"></i><span>Photos</span> <span>54</span></div>
+        <div><i class="fa fa-picture-o icons">
+          </i><span>Albums</span> <span>7</span></div>
+        <div><i class="fa fa-heart icons"></i><span>Likes</span> <span>1280</span></div>
       </div>
     </div>
 

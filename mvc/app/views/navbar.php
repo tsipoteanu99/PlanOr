@@ -35,7 +35,8 @@
     <div class="title_container">
       <h1>Plant Organiser SSM</h1>
     </div>
-    <a class="logout" href="<?php echo URL ?>/public/?url=logout"><img class="logoutimg" src="<?php echo URL ?>/public/assets/logout.png" /></a>
+    <a class="logout" href="<?php echo URL ?>/public/?url=logout"><i class="fa fa-sign-out" aria-hidden="true"></i>
+    </a>
   </nav>
 </body>
 
