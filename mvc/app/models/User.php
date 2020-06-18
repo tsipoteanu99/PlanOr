@@ -18,4 +18,16 @@ class User
       if ($resultCheck > 0) return true;
       else return false;
    }
+
+   public function createAccount($username, $password, $mail)
+   {
+      $connexion = Database::getInstance();
+      $querry = "INSERT INTO users (username, password, email) VALUES ('$username', '$password', '$mail');";
+      $result = mysqli_query($connexion::$connexion, $querry) or die();
+      if (mysqli_affected_rows($connexion::$connexion) > 0){
+         return true;
+      } 
+      else return false;
+   }
+
 }

@@ -18,7 +18,7 @@
     <div class="login">
     <img src="<?php echo URL ?>/public/assets/violete.jpg" alt="violete.jpg" class="avatar" />
       <h1>Register</h1>
-      <form method="POST">
+      <form method="POST" action="<?php echo URL ?>/public/register/registerForm">
         <label for="username">Username</label>
         <input
           type="text"
