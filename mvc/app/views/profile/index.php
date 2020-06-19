@@ -7,6 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" type="text/css" href="<?php echo URL ?>/public/css/myprofilestyle.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo URL ?>/public/css/navbar.css" />
+  <style>
+    #form-message {
+      background-color: rgb(255, 232, 232);
+      border: 1px solid red;
+      color: red;
+      display: none;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      padding: 10px 25px;
+      max-width: 250px;
+    }
+  </style>
   <script src="https://kit.fontawesome.com/ce66004dc2.js" crossorigin="anonymous"></script>
 </head>
 
@@ -31,110 +44,88 @@
     <div class="user-content">
       <div class="album-frame">
         <p>Albums</p>
+        <div class="albumForm">
+          <ul id="form-message">
+            <li>mesaj1</li>
+          </ul>
+          <input type="text" id="newAlbum" placeholder="Add new album..." />
+          <button type="submit" id="btn-submit">Add new album</button>
+        </div>
       </div>
       <div class="albums-box">
-        <!-- <?php
-              echo $data["test"];
-              for ($i = 0; $i <= 10; $i++)
-                echo '<h1>' . $i . '</h1>';
-              ?> -->
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-        <div class="content-pictures">
-          <a href="<?php echo URL ?>/public/?url=profile/album"><img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="asd" /></a>
-        </div>
-
+        <?php
+        for ($i = 0; $i < $data['count']; $i++) {
+          echo "<div class='content-pictures'>
+            <a href='" .  URL  . "/public/?url=profile/album'><img src='" .  URL . "/public/assets/imginfo.jpg' alt='album' /></a>
+            <p class = 'album-name'>" . $data['albums']['name'][$i] . "</p>
+          </div>";
+        }
+        ?>
       </div>
     </div>
   </div>
+
+  <script>
+    const form = {
+      newAlbum: document.getElementById('newAlbum'),
+      submit: document.getElementById('btn-submit'),
+      message: document.getElementById('form-message')
+    };
+
+    form.submit.addEventListener('click', () => {
+      const request = new XMLHttpRequest();
+
+
+      request.onload = () => {
+
+        console.log(request.responseText);
+        let responseObject = null;
+
+        try {
+          responseObject = JSON.parse(request.responseText);
+        } catch (e) {
+          console.error('Could not parse JSON!');
+        }
+
+        if (responseObject) {
+          handleResponse(responseObject);
+        }
+
+      };
+
+      const requestData = `newAlbum=${form.newAlbum.value}`;
+      console.log(requestData);
+
+      request.open('post', '<?php echo URL ?>/public/profile/newAlbum');
+      request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      request.send(requestData);
+
+
+
+      function handleResponse(responseObject) {
+
+        console.log(responseObject);
+
+        if (responseObject.ok) {
+          location.href = '<?php echo URL ?>/public/profile/index';
+        } else {
+          while (form.messages.firstChild) {
+
+            form.message.removeChild(form.message.firstChild);
+          }
+
+
+          const li = document.createElement('li');
+          li.textContent = message;
+          form.message.appendChild(li);
+
+
+          form.message.style.display = "block";
+        }
+
+      }
+    });
+  </script>
 </body>
 
 </html>

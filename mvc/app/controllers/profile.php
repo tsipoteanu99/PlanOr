@@ -2,10 +2,14 @@
 session_start();
 class Profile extends Controller
 {
+    private $albums;
+    private $albumsCount;
 
-    public function index($name = '')
+    public function index()
     {
-
+        $userAlbums = $this->model('Album');
+        $this->albums = $userAlbums->getUserAlbums($_SESSION['id']);
+        $this->albumsCount = $userAlbums->getAlbumsCount($_SESSION['id']);
         $this->view(
             'profile/index',
             [
@@ -14,39 +18,35 @@ class Profile extends Controller
                 'lastName' => $_SESSION['lastName'],
                 'firstName' => $_SESSION['firstName'],
                 'picture' => $_SESSION['picture'],
+                'albums' => $this->albums,
+                'count' => $this->albumsCount,
             ]
         );
     }
 
-    public function getUsername()
+    public function newAlbum()
     {
-        return $this->username;
-    }
-    public function getId()
-    {
-        return $this->id;
-    }
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
-    public function getPicture()
-    {
-        return $this->picture;
-    }
-    public function getEmail()
-    {
-        return $this->email;
-    }
-    public function getAdmin()
-    {
-        return $this->admin;
-    }
+        $albumName = isset($_POST['newAlbum']) ? $_POST['newAlbum'] : '';
+        $ok = true;
 
+        if (!isset($albumName) || empty($albumName)) {
+            $ok = false;
+            $message = 'Invalid album name!';
+        }
+
+        if ($ok) {
+            $album = $this->model('Album');
+            $album->createAlbum($albumName, $_SESSION['id']);
+            $message = 'Album succesfully created!';
+        }
+
+        echo json_encode(
+            array(
+                'ok' => $ok,
+                'message' => $message
+            )
+        );
+    }
 
     public function album($name = '')
     {
