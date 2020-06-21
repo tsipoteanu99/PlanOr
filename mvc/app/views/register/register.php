@@ -17,8 +17,10 @@
   </nav>
     <div class="login">
     <img src="<?php echo URL ?>/public/assets/violete.jpg" alt="violete.jpg" class="avatar" />
+      <ul id="errors">
+      </ul>
       <h1>Register</h1>
-      <form method="POST" action="<?php echo URL ?>/public/register/registerForm">
+      <div>
         <label for="username">Username</label>
         <input
           type="text"
@@ -35,9 +37,63 @@
         />
         <label for="email">Email</label>
         <input type="text" name="email" id="email" placeholder="Enter Email" />
-        <input type="submit" name="register" value="Register" />
+        <input type="submit" name="register" value="Register" id="submitbutton" />
         <a href="<?php echo URL ?>/public/?url=login">Already have an account?</a>
-      </form>
+      </div>
     </div>
+
+    <script>
+      const form = {
+        username: document.getElementById('username'),
+        password: document.getElementById('password'),
+        mail: document.getElementById('email'),
+        errors: document.getElementById('errors'),
+        submit: document.getElementById('submitbutton')
+      };
+
+      form.submit.addEventListener('click', () => {
+        const request = new XMLHttpRequest();
+
+
+        request.onload = () => {
+          let response = null;
+
+          try{
+            response = JSON.parse(request.responseText);
+          }catch (e){
+            console.error('could not parse JSON!');
+          }
+
+          if(response){
+            handleResponse(response);
+          }
+
+        };
+
+        const requestData = `username=${form.username.value}&password=${form.password.value}&email=${form.mail.value}`;
+
+        request.open('post', '<?php echo URL ?>/public/register/registerForm');
+        request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        request.send(requestData);
+      });
+
+      function handleResponse (response){
+        console.log(response);
+        if(!response.ok) {
+          while(form.errors.firstChild){
+            form.errors.removeChild(form.errors.firstChild);
+          }
+
+          response.errors.forEach((error) => {
+            const li = document.createElement('li');
+            li.textContent = error;
+            form.errors.appendChild(li);
+          });
+
+          form.errors.style.display = "block";
+        }
+        else location.href = 'http://localhost/mvc/public/?url=login'; 
+      }
+  </script>
   </body>
 </html>

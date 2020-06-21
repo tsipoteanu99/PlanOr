@@ -14,9 +14,14 @@ class Login extends Controller
         $pass = $_POST["password"];
         
         $ok = false;
+        $errors = array();
+        
+        if(strlen($pass) == 0 or strlen($username) == 0){
+            $ok = false;
+            $errors[] = 'Both username and password fields cannot be empty!';
+        }
 
-        if (!is_null($username) and !is_null($pass)) {
-            $ok = true;
+        else{
             $user = $this->model('User');
             $isValid = $user->checkIfValid($username, $pass);
 
@@ -35,13 +40,14 @@ class Login extends Controller
                 // );
             } else {
                 $ok = false;
+                $errors[] = 'Your username and password combination is incorrect!';
             }
         }
 
         echo json_encode(
             array(
                 'ok' => $ok,
-                'username' => $username
+                'errors' => $errors
             )
         );
     }

@@ -17,6 +17,8 @@
   </nav>
   <div class="login">
     <img src="<?php echo URL ?>/public/assets/violete.jpg" alt="violete.jpg" class="avatar" />
+    <ul id="errors">
+    </ul>
     <h1>Login</h1>
     <div id="form">
       <p>Username</p>
@@ -31,11 +33,11 @@
     const form = {
       username: document.getElementById('username'),
       password: document.getElementById('password'),
+      errors: document.getElementById('errors'),
       submit: document.getElementById('submitbutton')
     };
 
     form.submit.addEventListener('click', () => {
-      console.log('clicked');
       const request = new XMLHttpRequest();
 
 
@@ -64,10 +66,22 @@
     function handleResponse (response){
       console.log(response);
       if(response.ok) {
-        console.log("true");
+        // console.log("true");
         location.href = 'http://localhost/mvc/public/?url=profile';
       }
-      else console.log("false");
+      else{
+        while(form.errors.firstChild){
+          form.errors.removeChild(form.errors.firstChild);
+        }
+
+        response.errors.forEach((error) => {
+          const li = document.createElement('li');
+          li.textContent = error;
+          form.errors.appendChild(li);
+        });
+
+        form.errors.style.display = "block";
+      } 
     }
   </script>
 </body>
