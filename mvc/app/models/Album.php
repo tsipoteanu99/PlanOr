@@ -43,4 +43,28 @@ class Album
         $count = $row['count'];
         return $count;
     }
+
+
+    public function getAlbumsFromTag($tag){
+        $connexion = Database::getInstance();
+
+        $output = array();
+        $query = "SELECT * from tags where name = '$tag'";
+        $result = mysqli_query($connexion::$connexion, $query);
+        $resultCheck = mysqli_num_rows($result);
+
+        if ($resultCheck > 0) {
+            for ($i = 0; $i < $resultCheck; $i++) {
+                $row = mysqli_fetch_assoc($result);
+                $albumId = $row['albumid'];
+                $query2 = "SELECT * from albums where id = '$albumId';";
+                $resultAlbum = mysqli_query($connexion::$connexion, $query2);
+                $rowAlbum = mysqli_fetch_assoc($resultAlbum);
+                $output[] = $rowAlbum['name'];
+            }
+        }
+
+        print_r($output);
+        return $output;
+    }
 }
