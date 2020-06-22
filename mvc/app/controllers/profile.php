@@ -8,8 +8,9 @@ class Profile extends Controller
     public function index()
     {
         $userAlbums = $this->model('Album');
-        $this->albums = $userAlbums->getUserAlbums($_SESSION['id']);
         $this->albumsCount = $userAlbums->getAlbumsCount($_SESSION['id']);
+        if ($this->albumsCount > 0)
+            $this->albums = $userAlbums->getUserAlbums($_SESSION['id']);
         $this->view(
             'profile/index',
             [
@@ -48,10 +49,49 @@ class Profile extends Controller
         );
     }
 
-    public function album($name = '')
+    public function albumPhotos($name = '')
     {
 
-        $this->view('profile/album');
+        $this->view('profile/albumPhotos');
+    }
+
+    public function uploadPhoto()
+    {
+        if (isset($_POST['submit'])) {
+            $file = $_FILES['file'];
+
+
+            $fileName = $_FILES['file']['name'];
+            $fileTmpName = $_FILES['file']['tmp_name'];
+            $fileSize = $_FILES['file']['size'];
+            $fileError = $_FILES['file']['error'];
+            $fileType = $_FILES['file']['type'];
+
+            $fileExt = explode('.', $fileName);
+            $fileActualExt = strtolower(end($fileExt));
+
+            $allowed = array('jpg', 'jpeg', 'png');
+
+            if (in_array($fileActualExt, $allowed)) {
+                if ($fileError === 0) {
+                    if ($fileSize < 500000) {
+                        $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+                        $fileDestination = 'uploads/' . $fileNameNew;
+                        move_uploaded_file($fileTmpName, $fileDestination);
+
+
+                        echo "Succes uploading photo!";
+                        $this->view('profile/albumPhotos');
+                    } else {
+                        echo "Picture size too big!";
+                    }
+                } else {
+                    echo "Error uploading photo!";
+                }
+            } else {
+                echo "Can't upload photos with this extension!";
+            }
+        }
     }
 
     public function picturePage($name = '')
