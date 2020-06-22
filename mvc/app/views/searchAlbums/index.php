@@ -15,10 +15,16 @@
 
   <div class="box">
     <h1 class="searchTitle">Search Albums</h1>
-    <form>
+    <form method="get" action="<?php echo URL ?>/public/searchAlbums/findAlbumFromTag">
       <input type="text" name="input" placeholder="Search albums..." />
-      <input type="submit" name="submit" value="Search" />
+      <input type="submit" value="Search" />
     </form>
+    <?php
+      if(!empty($data['albums']))
+      foreach($data['albums'] as $val){
+        echo "<p>". $val. "</p>"; 
+      }
+    ?>
   </div>
 </body>
 
