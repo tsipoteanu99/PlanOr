@@ -17,7 +17,7 @@
     <div class="left">
       <div class="menu">
         <li class="item" id="Username">
-          <a href="<?php echo URL ?>/public/?url=settings/username" class="btn"><i class="fa fa-user"></i> Change Username</a>
+          <a href="<?php echo URL ?>/public/?url=settings/username" class="btn"><i class="fa fa-user"></i> Change Name</a>
         </li>
 
         <li class="item" id="Parola">
@@ -31,17 +31,91 @@
     </div>
 
     <div class="schimbare">
-      <form>
+      <div id='form'>
+        <ul id="errors">
+        </ul>
         <p>New E-mail</p>
-        <input type="text" placeholder="Enter your new e-mail" />
+        <input type="text" placeholder="Enter your new e-mail" id='mail'/>
         <p>Confirm new E-mail</p>
-        <input type="text" placeholder="Confirm your new e-mail" />
+        <input type="text" placeholder="Confirm your new e-mail" id='confirm'/>
         <p>Password</p>
-        <input type="password" placeholder="Enter Password" />
-        <input type="submit" value="Change e-mail" onclick="location.href='<?php echo URL ?>/public/?url=settings/confimation'" />
-      </form>
+        <input type="password" placeholder="Enter Password" id='pass'/>
+        <input type="submit" value="Change e-mail" id='submitbutton' />
+      </div>
     </div>
   </div>
+  <script>
+    const form = {
+        mail: document.getElementById('mail'),
+        confirm: document.getElementById('confirm'),
+        pass: document.getElementById('pass'),
+        errors: document.getElementById('errors'),
+        submit: document.getElementById('submitbutton')
+      };
+
+      form.submit.addEventListener('click', () => {
+        const request = new XMLHttpRequest();
+
+
+        request.onload = () => {
+          let response = null;
+
+          try{
+            response = JSON.parse(request.responseText);
+          }catch (e){
+            console.error('could not parse JSON!');
+          }
+
+          if(response){
+            handleResponse(response);
+          }
+
+        };
+
+        const requestData = `mail=${form.mail.value}&confirm=${form.confirm.value}&pass=${form.pass.value}`;
+
+        request.open('put', '<?php echo URL ?>/public/settings/changeMail');
+        request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        request.send(requestData);
+      });
+
+      function handleResponse (response){
+        console.log(response);
+        if(!response.ok) {
+          while(form.errors.firstChild){
+            form.errors.removeChild(form.errors.firstChild);
+          }
+
+          response.errors.forEach((error) => {
+            const li = document.createElement('li');
+            li.textContent = error;
+            form.errors.appendChild(li);
+          });
+
+          form.errors.style.display = "block";
+          form.errors.style.backgroundColor = "rgba(255, 200, 200, 1)";
+          form.errors.style.color = "red";
+          form.errors.style.border = "1px solid red";
+        }
+         else{
+          while(form.errors.firstChild){
+            form.errors.removeChild(form.errors.firstChild);
+          }
+
+          response.errors.forEach((error) => {
+            const li = document.createElement('li');
+            li.textContent = error;
+            form.errors.appendChild(li);
+          });
+
+          form.errors.style.display = "block";
+          form.errors.style.backgroundColor = "rgba(0,255,0,0.3)";
+          form.errors.style.color = "black";
+          form.errors.style.border = "1px solid green";
+
+         }
+      }
+  </script>
 </body>
 
 </html>

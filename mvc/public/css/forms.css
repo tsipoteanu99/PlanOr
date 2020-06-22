@@ -104,6 +104,21 @@ p {
   color: black;
 }
 
+#errors{
+  margin-top: 1%;
+  margin-bottom: 5%;
+  padding: 1.5%;
+  background-color: rgba(255, 200, 200, 1);
+  border: 1px solid red;
+  color: red;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  display: none;
+  list-style-type: none;
+
+}
+
 @media screen and (max-width: 825px) and (min-width: 720px) {
   .left {
     margin-right: 50px;

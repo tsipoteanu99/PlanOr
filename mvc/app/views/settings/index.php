@@ -19,7 +19,7 @@
     <div class="left">
       <div class="menu">
         <li class="item" id="Username">
-          <a href="<?php echo URL ?>/public/?url=settings/username" class="btn"><i class="fa fa-user"></i> Change Username</a>
+          <a href="<?php echo URL ?>/public/?url=settings/username" class="btn"><i class="fa fa-user"></i> Change Name</a>
         </li>
 
         <li class="item" id="Parola">

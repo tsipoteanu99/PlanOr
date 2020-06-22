@@ -78,21 +78,39 @@ class User
       }
    }
 
+   public function existsUsername($username){
+      $connexion = Database::getInstance();
+      $testQuerryUser = "SELECT username FROM users WHERE username='$username';";
+      $firstTest = mysqli_query($connexion::$connexion, $testQuerryUser) or die();
+      $firstTestCheck = mysqli_num_rows($firstTest); 
+      if($firstTestCheck>0) return false;
+      else return true;
+   }
+
+   public function existsMail($mail){
+      $connexion = Database::getInstance();
+      $testQuerryMail = "SELECT email FROM users WHERE email='$mail';";
+      $secondTest = mysqli_query($connexion::$connexion, $testQuerryMail) or die();
+      $secondTestCheck = mysqli_num_rows($secondTest); 
+      if($secondTestCheck>0) return false;
+      else return true;
+   }
+
    public function createAccount($username, $password, $mail)
    {
       $connexion = Database::getInstance();
       
-      $proceed = true;
-      $testQuerryUser = "SELECT username FROM users WHERE username='$username';";
-      $testQuerryMail = "SELECT email FROM users WHERE email='$mail';";
-      $firstTest = mysqli_query($connexion::$connexion, $testQuerryUser) or die();
-      $firstTestCheck = mysqli_num_rows($firstTest); 
-      if($firstTestCheck>0) $proceed = false;
-      $secondTest = mysqli_query($connexion::$connexion, $testQuerryMail) or die();
-      $secondTestCheck = mysqli_num_rows($secondTest); 
-      if($secondTestCheck>0) $proceed = false;
+      // $proceed = true;
+      // $testQuerryUser = "SELECT username FROM users WHERE username='$username';";
+      // $testQuerryMail = "SELECT email FROM users WHERE email='$mail';";
+      // $firstTest = mysqli_query($connexion::$connexion, $testQuerryUser) or die();
+      // $firstTestCheck = mysqli_num_rows($firstTest); 
+      // if($firstTestCheck>0) $proceed = false;
+      // $secondTest = mysqli_query($connexion::$connexion, $testQuerryMail) or die();
+      // $secondTestCheck = mysqli_num_rows($secondTest); 
+      // if($secondTestCheck>0) $proceed = false;
 
-      if(!$proceed) return false;
+      // if(!$proceed) return false;
       $querry = "INSERT INTO users (username, password, email) VALUES ('$username', '$password', '$mail');";
       $result = mysqli_query($connexion::$connexion, $querry) or die();
       if (mysqli_affected_rows($connexion::$connexion) > 0){
@@ -101,4 +119,46 @@ class User
       else return false;
    }
 
+
+   public function addName($first, $last, $userId){
+      $connexion = Database::getInstance();
+
+      $query = "UPDATE users SET first_name = '$first', last_name = '$last' WHERE id = '$userId'";
+      $result = mysqli_query($connexion::$connexion, $query) or die();
+      if(mysqli_affected_rows($connexion::$connexion) > 0) return true;
+      return false;
+   }
+
+   public function checkIfPasswordIsValid($userId, $pass){
+      $connexion = Database::getInstance();
+
+      $query = "SELECT password FROM users WHERE id='$userId';";
+      $result = mysqli_query($connexion::$connexion, $query) or die();
+      $resultCheck = mysqli_num_rows($result);
+      if ($resultCheck > 0) {
+         while ($row = mysqli_fetch_assoc($result)) {
+            if($row['password'] == $pass) return true;
+        }
+      }
+      return false;
+   }
+
+
+   public function changePassword($new, $userId){
+      $connexion = Database::getInstance();
+
+      $query = "UPDATE users SET password = '$new' WHERE id = '$userId'";
+      $result = mysqli_query($connexion::$connexion, $query) or die();
+      if(mysqli_affected_rows($connexion::$connexion) > 0) return true;
+      return false;
+   }
+
+   public function changeMail($new, $userId){
+      $connexion = Database::getInstance();
+
+      $query = "UPDATE users SET email = '$new' WHERE id = '$userId'";
+      $result = mysqli_query($connexion::$connexion, $query) or die();
+      if(mysqli_affected_rows($connexion::$connexion) > 0) return true;
+      return false;
+   }
 }
