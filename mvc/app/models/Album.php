@@ -19,7 +19,7 @@ class Album
     public function getUserAlbums($userId)
     {
         $connexion = Database::getInstance();
-        $query = "SELECT * from albums where userid=2";
+        $query = "SELECT * from albums where userid=$userId";
         $result = mysqli_query($connexion::$connexion, $query);
         $resultCheck = mysqli_num_rows($result);
         if ($resultCheck > 0) {
@@ -30,6 +30,7 @@ class Album
                 $album['name'][$i] = $row['name'];
             }
         }
+
         return $album;
     }
 

@@ -7,19 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" type="text/css" href="<?php echo URL ?>/public/css/myprofilestyle.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo URL ?>/public/css/navbar.css" />
-  <style>
-    #form-message {
-      background-color: rgb(255, 232, 232);
-      border: 1px solid red;
-      color: red;
-      display: none;
-      font-size: 12px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      padding: 10px 25px;
-      max-width: 250px;
-    }
-  </style>
   <script src="https://kit.fontawesome.com/ce66004dc2.js" crossorigin="anonymous"></script>
 </head>
 
@@ -56,7 +43,7 @@
         <?php
         for ($i = 0; $i < $data['count']; $i++) {
           echo "<div class='content-pictures'>
-            <a href='" .  URL  . "/public/?url=profile/album'><img src='" .  URL . "/public/assets/imginfo.jpg' alt='album' /></a>
+            <a href='" .  URL  . "/public/?url=profile/albumPhotos'><img src='" .  URL . "/public/assets/imginfo.jpg' alt='album' /></a>
             <p class = 'album-name'>" . $data['albums']['name'][$i] . "</p>
           </div>";
         }
