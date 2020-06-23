@@ -17,7 +17,11 @@
     <h1 class="searchTitle">Search Users</h1>
     <form>
       <input type="text" name="" placeholder="Search users..." />
-      <input type="submit" name="" value="Search" href="#" />
+      <div id='sbm'>
+        <input type="submit" name="" value="Search Username" href="#" />
+        <input type="submit" name="" value="Search Last Name" href="#" />
+        <input type="submit" name="" value="Search First Name" href="#" />
+      </div>
     </form>
   </div>
 </body>
