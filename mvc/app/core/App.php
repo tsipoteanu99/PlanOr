@@ -13,7 +13,7 @@ class App
         $url = $this->parseUrl();
 
         if (!isset($url[0]))
-            $url[0] = 'index';
+            $url[0] = 'login';
         if (file_exists('../app/controllers/' . $url[0] . '.php')) {
             $this->controller = $url[0];
 

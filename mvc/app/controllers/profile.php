@@ -4,6 +4,8 @@ class Profile extends Controller
 {
     private $albums;
     private $albumsCount;
+    private $photosCount;
+    private $photos;
     private $currentAlbumId;
 
     public function index()
@@ -54,17 +56,23 @@ class Profile extends Controller
     {
         $uri = $_SERVER['REQUEST_URI'];
         $id = explode('=', $uri);
-        $this->currentAlbumId = $id[2];
-        echo $this->currentAlbumId;
+        $newPhoto = $this->model('Photo');
 
-        $this->view('profile/albumPhotos', ['test' => $id[2]]);
+        $this->photosCount = $newPhoto->getPhotosCount($id[2]);
+        if ($this->photosCount > 0)
+            $this->photos = $newPhoto->getPhotosByAlbumId($id[2]);
+        $this->view('profile/albumPhotos', [
+            'test' => $id[2],
+            'photo' => $this->photos,
+            'count' => $this->photosCount
+        ]);
     }
 
     public function uploadPhoto($alId)
     {
         $ok = true;
         $messages = array();
-        
+
 
         if (isset($_POST['submit'])) {
             $file = $_FILES['file'];
@@ -82,22 +90,23 @@ class Profile extends Controller
 
             if (in_array($fileActualExt, $allowed)) {
                 if ($fileError === 0) {
-                    if ($fileSize < 500000) {
+                    if ($fileSize < 1500000) {
                         $fileNameNew = uniqid('', true) . "." . $fileActualExt;
                         $fileDestination = $_SERVER['DOCUMENT_ROOT'] . '/mvc/public/uploads/' . $fileNameNew;
                         $newPhoto = $this->model('Photo');
                         $newPhoto->setPath($fileNameNew, $alId);
-                       
+                        $count = $newPhoto->getPhotosCount($alId);
+                        if ($count > 0)
+                            $renderPhotos = $newPhoto->getPhotosByAlbumId($alId);
+
                         move_uploaded_file($fileTmpName, $fileDestination);
                         $ok = true;
                         $messages[] = "Succes uploading photo!";
-                        header("LOCATION: http://localhost/mvc/public/?url=profile");
-                        $this->view('profile/index', [
-                            'username' => $_SESSION['user'],
-                            'email' => $_SESSION['email'],
-                            'lastName' => $_SESSION['lastName'],
-                            'firstName' => $_SESSION['firstName'],
-                            'picture' => $_SESSION['picture'],
+                        header("LOCATION: http://localhost/mvc/public/?url=profile/albumPhotos/?id=" . $alId);
+                        $this->view('profile/albumPhotos', [
+                            'test' => $alId,
+                            'photo' => $this->photos,
+                            'count' => $this->photosCount
                         ]);
                     } else {
                         $ok = false;
