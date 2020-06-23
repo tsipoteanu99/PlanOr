@@ -32,7 +32,7 @@
         <div class='containerPhotos'>
           <img src='" . URL . "/public/uploads/" . $data['photo']['path'][$i] . "' alt='album' alt=' Imagine ' />
           <div class='buttons'>
-            <button onclick='window.location=`" . URL . "/public/?url=profile/picturePage`;'>Informatii</button>
+            <button onclick='window.location=`" . URL . "/public/?url=profile/picturePage/?id=" .$data['photo']['id'][$i] . "`;'>Informatii</button>
             <button>Sterge</button>
             </div>
           </div>";

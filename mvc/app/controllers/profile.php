@@ -10,16 +10,25 @@ class Profile extends Controller
 
     public function index()
     {
+        $likeCount;
         $userAlbums = $this->model('Album');
         $this->albumsCount = $userAlbums->getAlbumsCount($_SESSION['id']);
-        if ($this->albumsCount > 0)
+        if ($this->albumsCount > 0){
             $this->albums = $userAlbums->getUserAlbums($_SESSION['id']);
+            $user = $this->model('User');
+            $likeCount = $user->getLikes($_SESSION['id']);
+            $photoCount = $user->getPhotos($_SESSION['id']);
+            $albumCount = $user->getAlbums($_SESSION['id']);
+        }
         $this->view(
             'profile/index',
             [
                 'username' => $_SESSION['user'],
                 'email' => $_SESSION['email'],
                 'lastName' => $_SESSION['lastName'],
+                'likeCount' => $likeCount,
+                'photoCount' => $photoCount,
+                'albumCount' => $albumCount,
                 'firstName' => $_SESSION['firstName'],
                 'picture' => $_SESSION['picture'],
                 'albums' => $this->albums,
@@ -131,7 +140,44 @@ class Profile extends Controller
 
     public function picturePage($name = '')
     {
+        $uri = $_SERVER['REQUEST_URI'];
+        $id = explode('=', $uri);
 
-        $this->view('profile/picturePage');
+        $photo = $this->model('Photo');
+        $noLikes = $photo->getLikeCount($id[2]);
+
+        $this->view('profile/picturePage', [
+            'id' => $id[2],
+            'likes' => $noLikes
+        ]);
+    }
+
+    public function likeButtonPressed($photoId){
+        $photo = $this->model('Photo');
+        $userId = $_SESSION['id'];
+
+        $checkIfLogged = $photo->checkIfCanLike($userId);
+        if($checkIfLogged){
+            $hasLikedBefore = $photo->checkIfInDatabase($photoId, $userId);
+            if($hasLikedBefore){
+                $likeId = $photo->getLikeId($photoId, $userId);
+                $status = $photo->checkLikeStatus($photoId, $userId);
+                
+                $likePhoto = $photo->likePhoto($photoId, $userId, $status, $likeId);
+            }
+            else{
+                $addLike = $photo->addLike($photoId, $userId);
+            }
+        }
+
+        $noLikes = $photo->getLikeCount($photoId);
+
+        header("LOCATION: http://localhost/mvc/public/?url=profile/picturePage/?id=" . $photoId);
+        $this->view('profile/albumPhotos', [
+            'id' => $photoId,
+            'likes' => $noLikes
+        ]);
+
+
     }
 }

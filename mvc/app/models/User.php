@@ -150,4 +150,57 @@ class User
       if(mysqli_affected_rows($connexion::$connexion) > 0) return true;
       return false;
    }
+
+   public function getLikes($userId){
+      $connexion = Database::getInstance();
+
+      $sum = 0;
+      $query = "SELECT id from albums where userid='$userId';";
+      $result = mysqli_query($connexion::$connexion, $query);
+      $resultCheck = mysqli_num_rows($result);
+
+      if ($resultCheck > 0) {
+          for ($i = 0; $i < $resultCheck; $i++) {
+              $row = mysqli_fetch_assoc($result);
+              $albumLikes = Album::getNumberOfLikesForAlbum($row['id']);
+              $sum = $sum + $albumLikes;
+          }
+      }
+
+
+      
+      return $sum;
+   }
+
+   public function getPhotos($userId){
+      $connexion = Database::getInstance();
+
+      $sum = 0;
+      $query = "SELECT id from albums where userid='$userId';";
+      $result = mysqli_query($connexion::$connexion, $query);
+      $resultCheck = mysqli_num_rows($result);
+
+      if ($resultCheck > 0) {
+          for ($i = 0; $i < $resultCheck; $i++) {
+              $row = mysqli_fetch_assoc($result);
+              $albumLikes = Album::getNumberOfPhotos($row['id']);
+              $sum = $sum + $albumLikes;
+          }
+      }
+
+      
+      
+      return $sum;
+   }
+
+   public function getAlbums($userId){
+      $connexion = Database::getInstance();
+
+      
+      $query = "SELECT * from albums where userid='$userId';";
+      $result = mysqli_query($connexion::$connexion, $query);
+      $resultCheck = mysqli_num_rows($result);
+
+      return $resultCheck;
+   }
 }

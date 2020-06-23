@@ -21,10 +21,10 @@
       </div>
       <h2>User Info</h2>
       <div class="bio-info-box">
-        <div><i class="fa fa-camera icons"></i><span>Photos</span> <span>54</span></div>
+        <div><i class="fa fa-camera icons"></i><span>Photos</span> <span><?php echo $data['photoCount'] ?></span></div>
         <div><i class="fa fa-picture-o icons">
-          </i><span>Albums</span> <span>7</span></div>
-        <div><i class="fa fa-heart icons"></i><span>Likes</span> <span>1280</span></div>
+          </i><span>Albums</span> <span><?php echo $data['albumCount'] ?></span></div>
+        <div><i class="fa fa-heart icons"></i><span>Likes</span> <span><?php echo $data['likeCount'] ?></span></div>
       </div>
     </div>
 

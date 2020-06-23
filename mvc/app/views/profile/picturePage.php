@@ -17,22 +17,25 @@
             <div class="detaliiPoza">
                 <img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt="Imagine indisponibila">
                 <div class="text">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ullam possimus molestias nulla hic sint laborum corrupti, architecto vero temporibus natus ipsum sequi accusantium, id, neque saepe necessitatibus consectetur
+                    <p><?php echo $data['id']; ?>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ullam possimus molestias nulla hic sint laborum corrupti, architecto vero temporibus natus ipsum sequi accusantium, id, neque saepe necessitatibus consectetur
                         dicta.
                     </p>
                 </div>
             </div>
             <div class="miniCard">
                 <img src="<?php echo URL ?>/public/assets/miniLike.png" alt="Like">
-                <p>25</p>
+                <p><?php echo $data['likes'];?></p>
             </div>
-            <button>
+
+            
+            <button onClick="window.location='<?php echo URL . "/public/profile/likeButtonPressed/" . $data['id']?>'" >
                 <img src="<?php echo URL ?>/public/assets/like.png" alt="Like"> Îmi place
             </button>
         </div>
 
     </div>
 
+    
 </body>
 
 </html>

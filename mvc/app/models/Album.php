@@ -67,4 +67,32 @@ class Album
         print_r($output);
         return $output;
     }
+
+    public function getNumberOfLikesForAlbum($albumId){
+        $connexion = Database::getInstance();
+
+        $sum = 0;
+        $query = "SELECT likes from photos where albumid='$albumId';";
+        $result = mysqli_query($connexion::$connexion, $query);
+        $resultCheck = mysqli_num_rows($result);
+
+        if ($resultCheck > 0) {
+            for ($i = 0; $i < $resultCheck; $i++) {
+                $row = mysqli_fetch_assoc($result);
+                $sum = $sum + $row['likes'];
+            }
+        }
+        
+        return $sum;
+    }
+
+    public function getNumberOfPhotos($albumId){
+        $connexion = Database::getInstance();
+
+        
+        $query = "SELECT * from photos where albumid='$albumId';";
+        $result = mysqli_query($connexion::$connexion, $query);
+        $resultCheck = mysqli_num_rows($result);
+        return $resultCheck;
+    }
 }
