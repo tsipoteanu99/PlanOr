@@ -21,7 +21,7 @@
 
       </ul>
       <input type="file" id="file" name="file">
-      <button type="submit" id="submit" name="submit">Upload photo</button>
+      <button type="submit" id="submitbutton" name="submit">Upload photo</button>
     </form>
 
     <div class="display">
@@ -47,46 +47,38 @@
     </div>
   </div>
   <script>
-    // const form = {
-    //   photo: document.getElementById('file'),
-    //   messages: document.getElementById('form-messages'),
-    //   submit: document.getElementById('submit')
-    // }
+    const form = {
+      photo: document.getElementById('file'),
+      messages: document.getElementById('form-messages'),
+      submit: document.getElementById('submitbutton')
+    }
 
-    // form.submit.addEventListener('click', () => {
-    //   const request = new XMLHttpRequest();
+    form.submit.addEventListener('click', () => {
+      const request = new XMLHttpRequest();
+      console.log("clicked");
 
-    //   request.onload = () => {
-    //     let responseObject = null;
+      request.onload = () => {
+        let responseObject = null;
 
-    //     try {
-    //       responseObject = JSON.parse(request.responseText);
-    //     } catch (e) {
-    //       console.error('Could not parse json');
-    //     }
+        try {
+          responseObject = JSON.parse(request.responseText);
+        } catch (e) {
+          console.error('Could not parse json');
+        }
 
-    //     if (responseObject) {
-    //       handleResponse(responseObject);
-    //     }
+        if (responseObject) {
+          handleResponse(responseObject);
+        }
 
-    //   };
+      };
 
-    //   const requestData = `photo=${form.photo.value}`;
-    //   console.log(requestData);
-
-    //   request.open('file', '/public/profile/uploadPhoto');
-    //   request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    //   request.send(requestData);
-
-    // })
-
-    // function handleResponse(responseObject) {
-    //   console.log(responseObject);
-    //   if (responseObject.ok) {
-        
-    //   }
-    // }
-    // console.log(form);
+    function handleResponse(responseObject) {
+      console.log(responseObject);
+      if (responseObject.ok) {
+        location.href = 'http://localhost/mvc/public/?url=profile';
+      }
+    }
+    console.log(form);
   </script>
 
 </body>

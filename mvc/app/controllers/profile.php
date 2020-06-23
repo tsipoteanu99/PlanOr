@@ -87,6 +87,11 @@ class Profile extends Controller
                         $fileDestination = $_SERVER['DOCUMENT_ROOT'] . '/mvc/public/uploads/' . $fileNameNew;
                         $newPhoto = $this->model('Photo');
                         $newPhoto->setPath($fileNameNew, $alId);
+                       
+                        move_uploaded_file($fileTmpName, $fileDestination);
+                        $ok = true;
+                        $messages[] = "Succes uploading photo!";
+                        header("LOCATION: http://localhost/mvc/public/?url=profile");
                         $this->view('profile/index', [
                             'username' => $_SESSION['user'],
                             'email' => $_SESSION['email'],
@@ -94,9 +99,6 @@ class Profile extends Controller
                             'firstName' => $_SESSION['firstName'],
                             'picture' => $_SESSION['picture'],
                         ]);
-                        move_uploaded_file($fileTmpName, $fileDestination);
-                        $ok = true;
-                        $messages[] = "Succes uploading photo!";
                     } else {
                         $ok = false;
                         $messages[] = "Picture size too big!";
@@ -109,7 +111,7 @@ class Profile extends Controller
             if (!$ok)
                 $messages[] = "Can't upload photos with this extension!";
         }
-        echo json_encode(
+        json_encode(
             array(
                 'ok' => $ok,
                 'messages' => $messages,
