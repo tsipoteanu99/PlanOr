@@ -32,9 +32,6 @@
       <div class="album-frame">
         <p>Albums</p>
         <div class="albumForm">
-          <ul id="form-message">
-            <li>mesaj1</li>
-          </ul>
           <input type="text" id="newAlbum" placeholder="Add new album..." />
           <button type="submit" id="btn-submit">Add new album</button>
         </div>
@@ -43,7 +40,7 @@
         <?php
         for ($i = 0; $i < $data['count']; $i++) {
           $id = $data['albums']['id'][$i];
-          echo $id;
+
           echo "<div class='content-pictures'>
             <a href='" .  URL  . "/public/?url=profile/albumPhotos/?id=" . $id . "'><img src='" .  URL . "/public/assets/imginfo.jpg' alt='album' /></a>
             <p class = 'album-name'>" . $data['albums']['name'][$i] . "</p>

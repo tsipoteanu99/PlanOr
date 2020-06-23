@@ -25,61 +25,24 @@
     </form>
 
     <div class="display">
-      <div class="photos">
-        <div class="containerPhotos">
-          <img src="<?php echo URL ?>/public/uploads/5ef233ec557425.03493531.jpg" alt='album' alt=" Imagine " />
-          <div class="buttons">
-            <?php echo $data['test']; ?>
-            <button href="<?php echo URL ?>/public/?url=profile/picturePage">Informatii</button>
+      <div class='photos'>
+        <?php for ($i = 0; $i < $data['count']; $i++) {
+          echo
+            "
+        <div class='containerPhotos'>
+          <img src='" . URL . "/public/uploads/" . $data['photo']['path'][$i] . "' alt='album' alt=' Imagine ' />
+          <div class='buttons'>
+            <button onclick='window.location=`" . URL . "/public/?url=profile/picturePage`;'>Informatii</button>
             <button>Sterge</button>
-          </div>
-        </div>
-
-        <div class="containerPhotos">
-          <img src="<?php echo URL ?>/public/assets/imginfo.jpg" alt='album' alt=" Imagine " />
-          <div class="buttons">
-            <button>Informatii</button>
-            <button>Sterge</button>
-          </div>
-        </div>
-
+            </div>
+          </div>";
+        }
+        ?>
       </div>
     </div>
   </div>
-  <script>
-    const form = {
-      photo: document.getElementById('file'),
-      messages: document.getElementById('form-messages'),
-      submit: document.getElementById('submitbutton')
-    }
+  </div>
 
-    form.submit.addEventListener('click', () => {
-      const request = new XMLHttpRequest();
-      console.log("clicked");
-
-      request.onload = () => {
-        let responseObject = null;
-
-        try {
-          responseObject = JSON.parse(request.responseText);
-        } catch (e) {
-          console.error('Could not parse json');
-        }
-
-        if (responseObject) {
-          handleResponse(responseObject);
-        }
-
-      };
-
-    function handleResponse(responseObject) {
-      console.log(responseObject);
-      if (responseObject.ok) {
-        location.href = 'http://localhost/mvc/public/?url=profile';
-      }
-    }
-    console.log(form);
-  </script>
 
 </body>
 
