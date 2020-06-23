@@ -96,22 +96,11 @@ class User
       else return true;
    }
 
-   public function createAccount($username, $password, $mail)
+   public function createAccount($username, $password, $mail, $first, $last)
    {
       $connexion = Database::getInstance();
-      
-      // $proceed = true;
-      // $testQuerryUser = "SELECT username FROM users WHERE username='$username';";
-      // $testQuerryMail = "SELECT email FROM users WHERE email='$mail';";
-      // $firstTest = mysqli_query($connexion::$connexion, $testQuerryUser) or die();
-      // $firstTestCheck = mysqli_num_rows($firstTest); 
-      // if($firstTestCheck>0) $proceed = false;
-      // $secondTest = mysqli_query($connexion::$connexion, $testQuerryMail) or die();
-      // $secondTestCheck = mysqli_num_rows($secondTest); 
-      // if($secondTestCheck>0) $proceed = false;
 
-      // if(!$proceed) return false;
-      $querry = "INSERT INTO users (username, password, email) VALUES ('$username', '$password', '$mail');";
+      $querry = "INSERT INTO users (username, password, email, first_name, last_name) VALUES ('$username', '$password', '$mail', '$first', '$last');";
       $result = mysqli_query($connexion::$connexion, $querry) or die();
       if (mysqli_affected_rows($connexion::$connexion) > 0){
          return true;
