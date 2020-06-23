@@ -4,6 +4,7 @@ class Profile extends Controller
 {
     private $albums;
     private $albumsCount;
+    private $currentAlbumId;
 
     public function index()
     {
@@ -53,18 +54,17 @@ class Profile extends Controller
     {
         $uri = $_SERVER['REQUEST_URI'];
         $id = explode('=', $uri);
-        echo $id[2];
-
+        $this->currentAlbumId = $id[2];
+        echo $this->currentAlbumId;
 
         $this->view('profile/albumPhotos', ['test' => $id[2]]);
     }
 
-    public function uploadPhoto()
+    public function uploadPhoto($alId)
     {
         $ok = true;
         $messages = array();
-        $uri = $_SERVER['REQUEST_URI'];
-        $id = explode('=', $uri);
+        
 
         if (isset($_POST['submit'])) {
             $file = $_FILES['file'];
@@ -86,7 +86,14 @@ class Profile extends Controller
                         $fileNameNew = uniqid('', true) . "." . $fileActualExt;
                         $fileDestination = $_SERVER['DOCUMENT_ROOT'] . '/mvc/public/uploads/' . $fileNameNew;
                         $newPhoto = $this->model('Photo');
-                        $newPhoto->setPath($fileNameNew);
+                        $newPhoto->setPath($fileNameNew, $alId);
+                        $this->view('profile/index', [
+                            'username' => $_SESSION['user'],
+                            'email' => $_SESSION['email'],
+                            'lastName' => $_SESSION['lastName'],
+                            'firstName' => $_SESSION['firstName'],
+                            'picture' => $_SESSION['picture'],
+                        ]);
                         move_uploaded_file($fileTmpName, $fileDestination);
                         $ok = true;
                         $messages[] = "Succes uploading photo!";

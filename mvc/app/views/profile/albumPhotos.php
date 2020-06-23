@@ -16,7 +16,7 @@
   include($IPATH . "navbar.php"); ?>
   <div class="wrapper">
 
-    <form id="photoForm" method='POST' enctype="multipart/form-data">
+    <form id="photoForm" method='POST' action='<?php echo URL . "/public/profile/uploadPhoto/" . $data['test'] ?>' enctype="multipart/form-data">
       <ul id="form-messages">
 
       </ul>
@@ -47,46 +47,46 @@
     </div>
   </div>
   <script>
-    const form = {
-      photo: document.getElementById('file'),
-      messages: document.getElementById('form-messages'),
-      submit: document.getElementById('submit')
-    }
+    // const form = {
+    //   photo: document.getElementById('file'),
+    //   messages: document.getElementById('form-messages'),
+    //   submit: document.getElementById('submit')
+    // }
 
-    form.submit.addEventListener('click', () => {
-      const request = new XMLHttpRequest();
+    // form.submit.addEventListener('click', () => {
+    //   const request = new XMLHttpRequest();
 
-      request.onload = () => {
-        let responseObject = null;
+    //   request.onload = () => {
+    //     let responseObject = null;
 
-        try {
-          responseObject = JSON.parse(request.responseText);
-        } catch (e) {
-          console.error('Could not parse json');
-        }
+    //     try {
+    //       responseObject = JSON.parse(request.responseText);
+    //     } catch (e) {
+    //       console.error('Could not parse json');
+    //     }
 
-        if (responseObject) {
-          handleResponse(responseObject);
-        }
+    //     if (responseObject) {
+    //       handleResponse(responseObject);
+    //     }
 
-      };
+    //   };
 
-      const requestData = `photo=${form.photo.value}`;
-      console.log(requestData);
+    //   const requestData = `photo=${form.photo.value}`;
+    //   console.log(requestData);
 
-      request.open('file', '/public/profile/uploadPhoto');
-      request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-      request.send(requestData);
+    //   request.open('file', '/public/profile/uploadPhoto');
+    //   request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    //   request.send(requestData);
 
-    })
+    // })
 
-    function handleResponse(responseObject) {
-      console.log(responseObject);
-      if (responseObject.ok) {
-        location.href = '<?php echo URL ?>/public/?url=profile/albumPhotos';
-      }
-    }
-    console.log(form);
+    // function handleResponse(responseObject) {
+    //   console.log(responseObject);
+    //   if (responseObject.ok) {
+        
+    //   }
+    // }
+    // console.log(form);
   </script>
 
 </body>
