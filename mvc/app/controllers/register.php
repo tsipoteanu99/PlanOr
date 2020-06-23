@@ -13,8 +13,7 @@ class Register extends Controller
         $username = $_POST['username'];
         $pass = $_POST["password"];
         $mail = $_POST["email"];
-        $first = $_POST['first'];
-        $last = $_POST['last'];
+
 
         $ok = true;
         $errors = array();
@@ -33,19 +32,9 @@ class Register extends Controller
             $ok = false;
             $errors[] = 'Mail must be valid!';
         }
-
-        if(strlen($first) < 2){
-            $ok = false;
-            $errors[] = 'First name must have at least 2 letters!';
-        }
-
-        if(strlen($last) < 2){
-            $ok = false;
-            $errors[] = 'Last name must have at least 2 letters!';
-        }
         
         if($ok) {
-            if (!is_null($username) and !is_null($pass) and !is_null($mail) and !is_null($first) and !is_null($last)) {
+            if (!is_null($username) and !is_null($pass) and !is_null($mail)) {
                 $user = $this->model('User');
 
                 $verifyUsername = $user->existsUsername($username);
@@ -66,7 +55,7 @@ class Register extends Controller
 
                 if($canProceed){
 
-                $createAccount = $user->createAccount($username, $pass, $mail, $first, $last);
+                $createAccount = $user->createAccount($username, $pass, $mail);
                 
                 if (!$createAccount) {
                     $ok = false;

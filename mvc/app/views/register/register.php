@@ -37,20 +37,6 @@
         />
         <label for="email">Email</label>
         <input type="text" name="email" id="email" placeholder="Enter Email" />
-        <label for="first">First Name</label>
-        <input
-          type="text"
-          name="first"
-          id="first"
-          placeholder="Enter First Name"
-        />
-        <label for="last">Last Name</label>
-        <input
-          type="text"
-          name="last"
-          id="last"
-          placeholder="Enter Last Name"
-        />
         <input type="submit" name="register" value="Register" id="submitbutton" />
         <a href="<?php echo URL ?>/public/?url=login">Already have an account?</a>
       </div>
@@ -61,8 +47,6 @@
         username: document.getElementById('username'),
         password: document.getElementById('password'),
         mail: document.getElementById('email'),
-        first: document.getElementById('first'),
-        last: document.getElementById('last'),
         errors: document.getElementById('errors'),
         submit: document.getElementById('submitbutton')
       };
@@ -86,7 +70,7 @@
 
         };
 
-        const requestData = `username=${form.username.value}&password=${form.password.value}&email=${form.mail.value}&first=${form.first.value}&last=${form.last.value}`;
+        const requestData = `username=${form.username.value}&password=${form.password.value}&email=${form.mail.value}`;
 
         request.open('post', '<?php echo URL ?>/public/register/registerForm');
         request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');

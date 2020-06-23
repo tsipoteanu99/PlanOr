@@ -51,21 +51,29 @@ class Profile extends Controller
 
     public function albumPhotos($name = '')
     {
+        $uri = $_SERVER['REQUEST_URI'];
+        $id = explode('=', $uri);
+        echo $id[2];
 
-        $this->view('profile/albumPhotos');
+
+        $this->view('profile/albumPhotos', ['test' => $id[2]]);
     }
 
     public function uploadPhoto()
     {
+        $ok = true;
+        $messages = array();
+        $uri = $_SERVER['REQUEST_URI'];
+        $id = explode('=', $uri);
+
         if (isset($_POST['submit'])) {
             $file = $_FILES['file'];
 
+            $fileName = $file['name'];
+            $fileTmpName = $file['tmp_name'];
+            $fileSize = $file['size'];
+            $fileError = $file['error'];
 
-            $fileName = $_FILES['file']['name'];
-            $fileTmpName = $_FILES['file']['tmp_name'];
-            $fileSize = $_FILES['file']['size'];
-            $fileError = $_FILES['file']['error'];
-            $fileType = $_FILES['file']['type'];
 
             $fileExt = explode('.', $fileName);
             $fileActualExt = strtolower(end($fileExt));
@@ -76,23 +84,32 @@ class Profile extends Controller
                 if ($fileError === 0) {
                     if ($fileSize < 500000) {
                         $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-                        $fileDestination = 'uploads/' . $fileNameNew;
+                        $fileDestination = $_SERVER['DOCUMENT_ROOT'] . '/mvc/public/uploads/' . $fileNameNew;
+                        $newPhoto = $this->model('Photo');
+                        $newPhoto->setPath($fileNameNew);
                         move_uploaded_file($fileTmpName, $fileDestination);
-
-
-                        echo "Succes uploading photo!";
-                        $this->view('profile/albumPhotos');
+                        $ok = true;
+                        $messages[] = "Succes uploading photo!";
                     } else {
-                        echo "Picture size too big!";
+                        $ok = false;
+                        $messages[] = "Picture size too big!";
                     }
                 } else {
-                    echo "Error uploading photo!";
+                    $ok = false;
+                    $messages[] = "Error uploading photo!";
                 }
-            } else {
-                echo "Can't upload photos with this extension!";
             }
+            if (!$ok)
+                $messages[] = "Can't upload photos with this extension!";
         }
+        echo json_encode(
+            array(
+                'ok' => $ok,
+                'messages' => $messages,
+            )
+        );
     }
+
 
     public function picturePage($name = '')
     {

@@ -42,8 +42,10 @@
       <div class="albums-box">
         <?php
         for ($i = 0; $i < $data['count']; $i++) {
+          $id = $data['albums']['id'][$i];
+          echo $id;
           echo "<div class='content-pictures'>
-            <a href='" .  URL  . "/public/?url=profile/albumPhotos'><img src='" .  URL . "/public/assets/imginfo.jpg' alt='album' /></a>
+            <a href='" .  URL  . "/public/?url=profile/albumPhotos/?id=" . $id . "'><img src='" .  URL . "/public/assets/imginfo.jpg' alt='album' /></a>
             <p class = 'album-name'>" . $data['albums']['name'][$i] . "</p>
           </div>";
         }

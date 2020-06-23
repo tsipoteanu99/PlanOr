@@ -11,21 +11,26 @@
 </head>
 
 <body>
+
   <?php $IPATH = $_SERVER["DOCUMENT_ROOT"] . "/mvc/app/views/";
   include($IPATH . "navbar.php"); ?>
   <div class="wrapper">
 
-    <form id="photoForm">
-      <input type="file" name="file">
-      <button onclick="uploadPhoto()">Upload photo</button>
+    <form id="photoForm" method='POST' enctype="multipart/form-data">
+      <ul id="form-messages">
+
+      </ul>
+      <input type="file" id="file" name="file">
+      <button type="submit" id="submit" name="submit">Upload photo</button>
     </form>
 
     <div class="display">
       <div class="photos">
         <div class="containerPhotos">
-          <img src="<?php echo URL ?>/public/assets/profilepic.jpg" alt='album' alt=" Imagine " />
+          <img src="<?php echo URL ?>/public/uploads/5ef233ec557425.03493531.jpg" alt='album' alt=" Imagine " />
           <div class="buttons">
-            <button>Informatii</button>
+            <?php echo $data['test']; ?>
+            <button href="<?php echo URL ?>/public/?url=profile/picturePage">Informatii</button>
             <button>Sterge</button>
           </div>
         </div>
@@ -41,15 +46,49 @@
       </div>
     </div>
   </div>
-
   <script>
-    function uploadImage() {
-      fetch('<?php echo URL ?>/public/profile/uploadPhoto', {
-        method: "POST",
-        body: new FormData(document.getElemendById(photoForm))
-      })
+    const form = {
+      photo: document.getElementById('file'),
+      messages: document.getElementById('form-messages'),
+      submit: document.getElementById('submit')
     }
+
+    form.submit.addEventListener('click', () => {
+      const request = new XMLHttpRequest();
+
+      request.onload = () => {
+        let responseObject = null;
+
+        try {
+          responseObject = JSON.parse(request.responseText);
+        } catch (e) {
+          console.error('Could not parse json');
+        }
+
+        if (responseObject) {
+          handleResponse(responseObject);
+        }
+
+      };
+
+      const requestData = `photo=${form.photo.value}`;
+      console.log(requestData);
+
+      request.open('file', '/public/profile/uploadPhoto');
+      request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      request.send(requestData);
+
+    })
+
+    function handleResponse(responseObject) {
+      console.log(responseObject);
+      if (responseObject.ok) {
+        location.href = '<?php echo URL ?>/public/?url=profile/albumPhotos';
+      }
+    }
+    console.log(form);
   </script>
+
 </body>
 
 </html>
