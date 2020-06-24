@@ -24,6 +24,7 @@ class Photo
                 $row = mysqli_fetch_assoc($result);
                 $photos['path'][$i] = $row['path'];
                 $photos['likes'][$i] = $row['likes'];
+                $photos['id'][$i] = $row['id'];
             }
         }
 
@@ -38,5 +39,29 @@ class Photo
         $row = mysqli_fetch_assoc($result);
         $count = $row['count'];
         return $count;
+    }
+
+    public function getPhotoInfo($id)
+    {
+        $connexion = Database::getInstance();
+        $query = "SELECT * from photos where id=$id";
+        $result = mysqli_query($connexion::$connexion, $query);
+        $resultCheck = mysqli_num_rows($result);
+        if ($resultCheck > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $photo['path'] = $row['path'];
+            $photo['likes'] = $row['likes'];
+            $photo['id'] = $row['id'];
+            $photo['desc'] = $row['description'];
+        }
+
+        return $photo;
+    }
+
+    public function deletePhoto($id)
+    {
+        $connexion = Database::getInstance();
+        $query = "DELETE from photos where id=$id";
+        mysqli_query($connexion::$connexion, $query);
     }
 }

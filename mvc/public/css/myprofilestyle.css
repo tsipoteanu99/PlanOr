@@ -44,6 +44,16 @@
   width: auto;
   height: auto;
 }
+button {
+  background-color: hsl(160, 22%, 24%);
+  border: none;
+  color: white;
+  padding: 7px 10px;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 4px;
+  margin: 5px;
+}
 
 .profile-picture img {
   width: 100%;

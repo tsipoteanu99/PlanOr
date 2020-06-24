@@ -1,5 +1,4 @@
 * {
-  list-style: none;
   text-decoration: none;
 }
 
@@ -38,7 +37,6 @@
   background: gray;
   color: white;
 }
-
 
 .item:hover > a {
   background-color: #1d2926;
@@ -100,11 +98,15 @@
   color: white;
 }
 
+.results {
+  display: flex;
+}
+
 p {
   color: black;
 }
 
-#errors{
+#errors {
   margin-top: 1%;
   margin-bottom: 5%;
   padding: 1.5%;
@@ -116,7 +118,6 @@ p {
   font-weight: bold;
   display: none;
   list-style-type: none;
-
 }
 
 @media screen and (max-width: 825px) and (min-width: 720px) {

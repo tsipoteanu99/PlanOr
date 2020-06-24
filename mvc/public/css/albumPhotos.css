@@ -14,6 +14,28 @@
   padding-bottom: 10px;
 }
 
+.globalWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.tagWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.tagWrapper:first-child {
+  justify-content: flex-start;
+}
+
+.tagWrapper ul {
+  margin-top: 30%;
+  font-size: 150%;
+}
+
 .containerPhotos img {
   width: 80%;
   height: auto;

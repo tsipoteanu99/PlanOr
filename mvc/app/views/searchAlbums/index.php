@@ -19,12 +19,14 @@
       <input type="text" name="input" placeholder="Search albums..." />
       <input type="submit" value="Search" />
     </form>
-    <?php
-      if(!empty($data['albums']))
-      foreach($data['albums'] as $val){
-        echo "<p>". $val. "</p>"; 
-      }
-    ?>
+    <ul class=results>
+      <?php
+      if (!empty($data['albums']))
+        foreach ($data['albums'] as $val) {
+          echo "<li>" . $val . "</li>";
+        }
+      ?>
+    </ul>
   </div>
 </body>
 

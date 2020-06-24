@@ -52,19 +52,48 @@ class Profile extends Controller
         );
     }
 
+    public function newTag($alId)
+    {
+
+        $tagName = isset($_POST['addTag']) ? $_POST['addTag'] : '';
+        $ok = true;
+
+        if (!isset($tagName) || empty($tagName)) {
+            $ok = false;
+            $message = 'Invalid tag name!';
+        }
+
+        if ($ok) {
+            $album = $this->model('Album');
+            $album->addNewTagToAlbum($tagName, $alId);
+            $message = 'Tag succesfully added!';
+        }
+
+        echo json_encode(
+            array(
+                'ok' => $ok,
+                'message' => $message
+            )
+        );
+    }
+
     public function albumPhotos($name = '')
     {
         $uri = $_SERVER['REQUEST_URI'];
         $id = explode('=', $uri);
         $newPhoto = $this->model('Photo');
-
+        $album = $this->model('Album');
+        if ($album->getAlbumTags($id[2]) !== null) {
+            $tags = $album->getAlbumTags($id[2]);
+        } else $tags['name'][0] = "No tags to show";
         $this->photosCount = $newPhoto->getPhotosCount($id[2]);
         if ($this->photosCount > 0)
             $this->photos = $newPhoto->getPhotosByAlbumId($id[2]);
         $this->view('profile/albumPhotos', [
             'test' => $id[2],
             'photo' => $this->photos,
-            'count' => $this->photosCount
+            'count' => $this->photosCount,
+            'tags'  => $tags
         ]);
     }
 
@@ -131,7 +160,21 @@ class Profile extends Controller
 
     public function picturePage($name = '')
     {
+        $uri = $_SERVER['REQUEST_URI'];
+        $id = explode('=', $uri);
+        $photo = $this->model('Photo');
+        $photoInfo = $photo->getPhotoInfo($id[2]);
+        $this->view('profile/picturePage', [
+            'test' => $id[2],
+            'path' => $photoInfo['path'],
+            'desc' => $photoInfo['desc'],
+            'likes' => $photoInfo['likes'],
+        ]);
+    }
 
-        $this->view('profile/picturePage');
+    public function deletePhoto($id)
+    {
+        $photo = $this->model('Photo');
+        $photo->deletePhoto($id);
     }
 }
