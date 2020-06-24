@@ -14,33 +14,23 @@
     <?php $IPATH = $_SERVER["DOCUMENT_ROOT"] . "/mvc/app/views/";
     include($IPATH . "navbar.php"); ?>
 
-    <button onClick="getBack()">Go Back</button>
+    <button onClick=" window.history.go(-1);">Go Back</button>
 
     <div class="display">
         <div class="card">
             <div class="detaliiPoza">
                 <?php echo "<img src='" . URL . "/public/uploads/" . $data['path'] . "'" . "alt='Imagine indisponibila'>"; ?>
                 <div class="text">
-<<<<<<< HEAD
-                    <p><?php echo $data['id']; ?>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ullam possimus molestias nulla hic sint laborum corrupti, architecto vero temporibus natus ipsum sequi accusantium, id, neque saepe necessitatibus consectetur
-                        dicta.
-                    </p>
-=======
-                    <?php echo "<p>" .  $data['desc'] . "</p>" ?>
->>>>>>> lastBranch
+                    <p><?php echo $data['desc']; ?></p>
                 </div>
             </div>
             <div class="miniCard">
                 <img src="<?php echo URL ?>/public/assets/miniLike.png" alt="Like">
-<<<<<<< HEAD
-                <p><?php echo $data['likes'];?></p>
-=======
-                <?php echo "<p>" .  $data['likes'] . "</p>" ?>
->>>>>>> lastBranch
+                <p><?php echo $data['likes']; ?></p>
             </div>
 
-            
-            <button onClick="window.location='<?php echo URL . "/public/profile/likeButtonPressed/" . $data['id']?>'" >
+
+            <button onClick="window.location='<?php echo URL . "/public/profile/likeButtonPressed/" . $data['id'] ?>'">
                 <img src="<?php echo URL ?>/public/assets/like.png" alt="Like"> Îmi place
             </button>
             <button id='delete'>Sterge</button>
@@ -90,14 +80,10 @@
             }
         })
 
-<<<<<<< HEAD
-    
-=======
         function getBack() {
             window.history.go(-1);
         }
     </script>
->>>>>>> lastBranch
 </body>
 
 </html>

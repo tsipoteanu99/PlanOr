@@ -46,12 +46,7 @@
         <div class='containerPhotos'>
           <img src='" . URL . "/public/uploads/" . $data['photo']['path'][$i] . "' alt='album' alt=' Imagine ' />
           <div class='buttons'>
-<<<<<<< HEAD
-            <button onclick='window.location=`" . URL . "/public/?url=profile/picturePage/?id=" .$data['photo']['id'][$i] . "`;'>Informatii</button>
-            <button>Sterge</button>
-=======
             <button onclick='window.location=`" . URL . "/public/?url=profile/picturePage/?id=" . $data['photo']['id'][$i] . "`;'>Informatii</button>
->>>>>>> lastBranch
             </div>
           </div>";
           }

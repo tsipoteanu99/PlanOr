@@ -69,8 +69,8 @@ class Album
         return $output;
     }
 
-<<<<<<< HEAD
-    public function getNumberOfLikesForAlbum($albumId){
+    public function getNumberOfLikesForAlbum($albumId)
+    {
         $connexion = Database::getInstance();
 
         $sum = 0;
@@ -84,19 +84,20 @@ class Album
                 $sum = $sum + $row['likes'];
             }
         }
-        
+
         return $sum;
     }
 
-    public function getNumberOfPhotos($albumId){
+    public function getNumberOfPhotos($albumId)
+    {
         $connexion = Database::getInstance();
 
-        
+
         $query = "SELECT * from photos where albumid='$albumId';";
         $result = mysqli_query($connexion::$connexion, $query);
         $resultCheck = mysqli_num_rows($result);
         return $resultCheck;
-=======
+    }
     public function addNewTagToAlbum($tagName, $albumId)
     {
         $connexion = Database::getInstance();
@@ -120,6 +121,5 @@ class Album
             }
             return $tag;
         }
->>>>>>> lastBranch
     }
 }

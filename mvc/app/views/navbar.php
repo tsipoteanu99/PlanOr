@@ -29,6 +29,9 @@
           <li>
             <a href="<?php echo URL ?>/public/?url=settings">Account Settings</a>
           </li>
+          <li>
+            <a href="<?php echo URL ?>/public/?url=doc">Documentatie</a>
+          </li>
         </ul>
       </li>
     </ul>

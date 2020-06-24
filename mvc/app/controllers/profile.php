@@ -10,10 +10,10 @@ class Profile extends Controller
 
     public function index()
     {
-        $likeCount;
+        $likeCount = 0;
         $userAlbums = $this->model('Album');
         $this->albumsCount = $userAlbums->getAlbumsCount($_SESSION['id']);
-        if ($this->albumsCount > 0){
+        if ($this->albumsCount > 0) {
             $this->albums = $userAlbums->getUserAlbums($_SESSION['id']);
             $user = $this->model('User');
             $likeCount = $user->getLikes($_SESSION['id']);
@@ -171,31 +171,35 @@ class Profile extends Controller
     {
         $uri = $_SERVER['REQUEST_URI'];
         $id = explode('=', $uri);
-<<<<<<< HEAD
 
         $photo = $this->model('Photo');
         $noLikes = $photo->getLikeCount($id[2]);
+        $photoInfo = $photo->getPhotoInfo($id[2]);
 
         $this->view('profile/picturePage', [
             'id' => $id[2],
-            'likes' => $noLikes
+            'likes' => $photoInfo['likes'],
+            'path' => $photoInfo['path'],
+            'desc' => $photoInfo['desc'],
         ]);
     }
 
-    public function likeButtonPressed($photoId){
+    public function likeButtonPressed($photoId)
+    {
         $photo = $this->model('Photo');
         $userId = $_SESSION['id'];
-
+        $uri = $_SERVER['REQUEST_URI'];
+        $id = explode('=', $uri);
+        $photoInfo = $photo->getPhotoInfo($id[2]);
         $checkIfLogged = $photo->checkIfCanLike($userId);
-        if($checkIfLogged){
+        if ($checkIfLogged) {
             $hasLikedBefore = $photo->checkIfInDatabase($photoId, $userId);
-            if($hasLikedBefore){
+            if ($hasLikedBefore) {
                 $likeId = $photo->getLikeId($photoId, $userId);
                 $status = $photo->checkLikeStatus($photoId, $userId);
-                
+
                 $likePhoto = $photo->likePhoto($photoId, $userId, $status, $likeId);
-            }
-            else{
+            } else {
                 $addLike = $photo->addLike($photoId, $userId);
             }
         }
@@ -203,27 +207,17 @@ class Profile extends Controller
         $noLikes = $photo->getLikeCount($photoId);
 
         header("LOCATION: http://localhost/mvc/public/?url=profile/picturePage/?id=" . $photoId);
-        $this->view('profile/albumPhotos', [
-            'id' => $photoId,
-            'likes' => $noLikes
-        ]);
-
-
-=======
-        $photo = $this->model('Photo');
-        $photoInfo = $photo->getPhotoInfo($id[2]);
         $this->view('profile/picturePage', [
-            'test' => $id[2],
+            'id' => $id[2],
+            'likes' => $noLikes,
             'path' => $photoInfo['path'],
             'desc' => $photoInfo['desc'],
             'likes' => $photoInfo['likes'],
         ]);
     }
-
     public function deletePhoto($id)
     {
         $photo = $this->model('Photo');
         $photo->deletePhoto($id);
->>>>>>> lastBranch
     }
 }
