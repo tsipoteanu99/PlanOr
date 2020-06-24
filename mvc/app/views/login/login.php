@@ -67,7 +67,7 @@
       console.log(response);
       if(response.ok) {
         // console.log("true");
-        location.href = 'http://localhost/mvc/public/?url=profile';
+        location.href = 'http://localhost/mvc/public/?url=home';
       }
       else{
         while(form.errors.firstChild){
