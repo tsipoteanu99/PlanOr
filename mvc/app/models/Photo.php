@@ -25,6 +25,7 @@ class Photo
                 $photos['path'][$i] = $row['path'];
                 $photos['id'][$i] = $row['id'];
                 $photos['likes'][$i] = $row['likes'];
+                $photos['id'][$i] = $row['id'];
             }
         }
 
@@ -41,14 +42,22 @@ class Photo
         return $count;
     }
 
+<<<<<<< HEAD
 
     public function getLikeCount($photoId){
         $connexion = Database::getInstance();
         $query = "SELECT likes from photos where id='$photoId'";
+=======
+    public function getPhotoInfo($id)
+    {
+        $connexion = Database::getInstance();
+        $query = "SELECT * from photos where id=$id";
+>>>>>>> lastBranch
         $result = mysqli_query($connexion::$connexion, $query);
         $resultCheck = mysqli_num_rows($result);
         if ($resultCheck > 0) {
             $row = mysqli_fetch_assoc($result);
+<<<<<<< HEAD
             $noLikes = $row['likes'];
         }
 
@@ -128,5 +137,21 @@ class Photo
             $result2 = mysqli_query($connexion::$connexion, $query2) or die();
         }
 
+=======
+            $photo['path'] = $row['path'];
+            $photo['likes'] = $row['likes'];
+            $photo['id'] = $row['id'];
+            $photo['desc'] = $row['description'];
+        }
+
+        return $photo;
+    }
+
+    public function deletePhoto($id)
+    {
+        $connexion = Database::getInstance();
+        $query = "DELETE from photos where id=$id";
+        mysqli_query($connexion::$connexion, $query);
+>>>>>>> lastBranch
     }
 }

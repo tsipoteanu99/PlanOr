@@ -45,7 +45,8 @@ class Album
     }
 
 
-    public function getAlbumsFromTag($tag){
+    public function getAlbumsFromTag($tag)
+    {
         $connexion = Database::getInstance();
 
         $output = array();
@@ -64,10 +65,11 @@ class Album
             }
         }
 
-        print_r($output);
+
         return $output;
     }
 
+<<<<<<< HEAD
     public function getNumberOfLikesForAlbum($albumId){
         $connexion = Database::getInstance();
 
@@ -94,5 +96,30 @@ class Album
         $result = mysqli_query($connexion::$connexion, $query);
         $resultCheck = mysqli_num_rows($result);
         return $resultCheck;
+=======
+    public function addNewTagToAlbum($tagName, $albumId)
+    {
+        $connexion = Database::getInstance();
+        $tagQuerry = "INSERT INTO tags (albumid, name) VALUES ('$albumId', '$tagName')";
+        mysqli_query($connexion::$connexion, $tagQuerry);
+        if (mysqli_affected_rows($connexion::$connexion) > 0) {
+            return true;
+        } else return false;
+    }
+
+    public function getAlbumTags($id)
+    {
+        $connexion = Database::getInstance();
+        $query = "SELECT * from tags where albumid = '$id'";
+        $result = mysqli_query($connexion::$connexion, $query);
+        $resultCheck = mysqli_num_rows($result);
+        if ($resultCheck > 0) {
+            for ($i = 0; $i < $resultCheck; $i++) {
+                $row = mysqli_fetch_assoc($result);
+                $tag['name'][$i] = $row['name'];
+            }
+            return $tag;
+        }
+>>>>>>> lastBranch
     }
 }
